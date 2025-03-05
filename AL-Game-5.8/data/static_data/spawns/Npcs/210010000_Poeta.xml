@@ -257,7 +257,7 @@
 			<spot x="604.2734" y="958.3334" z="102.210724" h="49"/>
 		</spawn>
 		<!-- Longnosed Snuffler ||| Merdion_1_n -->
-		<spawn npc_id="210078" respawn_time="295">
+		<spawn npc_id="210078" respawn_time="295" random_walk="10">
 			<spot x="1102.8624" y="990.96246" z="126.79608" h="30"/>
 			<spot x="1082.7434" y="994.4748" z="128.38326" h="36"/>
 			<spot x="1118.0306" y="999.446" z="128.39615" h="60"/>

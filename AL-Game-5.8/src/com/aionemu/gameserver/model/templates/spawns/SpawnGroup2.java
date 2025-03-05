@@ -58,6 +58,7 @@ public class SpawnGroup2 extends AbstractLockManager {
 	private byte difficultId;
 	private TemporarySpawn temporarySpawn;
 	private int respawnTime;
+	private int randomWalk;
 	private SpawnHandlerType handlerType;
 	private List<SpawnTemplate> spots = new ArrayList<SpawnTemplate>();
 	private HashMap<Integer, HashMap<SpawnTemplate, Boolean>> poolUsedTemplates;
@@ -176,6 +177,7 @@ public class SpawnGroup2 extends AbstractLockManager {
 	private void initializing(Spawn spawn) {
 		temporarySpawn = spawn.getTemporarySpawn();
 		respawnTime = spawn.getRespawnTime();
+		randomWalk = spawn.getRandomWalk();
 		pool = spawn.getPool();
 		npcId = spawn.getNpcId();
 		handlerType = spawn.getSpawnHandlerType();
@@ -228,6 +230,14 @@ public class SpawnGroup2 extends AbstractLockManager {
 
 	public void setRespawnTime(int respawnTime) {
 		this.respawnTime = respawnTime;
+	}
+
+	public int getRandomWalk() {
+		return randomWalk;
+	}
+
+	public void setRandomWalk(int randomWalk) {
+		this.randomWalk = randomWalk;
 	}
 
 	public boolean isTemporarySpawn() {

@@ -56,7 +56,7 @@ public class SpawnTemplate {
 		z = spot.getZ();
 		h = spot.getHeading();
 		staticId = spot.getStaticId();
-		randomWalk = spot.getRandomWalk();
+		randomWalk = (spawnGroup.getRandomWalk() > 0) ? spawnGroup.getRandomWalk() : spot.getRandomWalk();
 		walkerId = spot.getWalkerId();
 		fly = spot.getFly();
 		anchor = spot.getAnchor();
@@ -134,7 +134,11 @@ public class SpawnTemplate {
 	}
 
 	public int getRandomWalk() {
-		return randomWalk;
+		if (randomWalk > 0)
+			return randomWalk;
+		if (spawnGroup.getRandomWalk() > 0)
+			return spawnGroup.getRandomWalk();
+		return 0;
 	}
 
 	public void setRandomWalk(int randomWalk) {

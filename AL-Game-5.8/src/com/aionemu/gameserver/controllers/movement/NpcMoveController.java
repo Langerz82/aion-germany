@@ -17,6 +17,9 @@
 package com.aionemu.gameserver.controllers.movement;
 
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
+
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,6 +48,9 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.collections.LastUsedCache;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.geo.GeoService;
+
+import com.aionemu.gameserver.path.Cell;
+import com.aionemu.gameserver.path.Pathfinder;
 
 /**
  * @author ATracer
@@ -88,6 +94,13 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 			destination = Destination.TARGET_OBJECT;
 			updateLastMove();
 			MoveTaskManager.getInstance().addCreature(owner);
+			if(currentRoute == null) {
+				VisibleObject target = owner.getTarget();
+				if (target == null) {
+					return;
+				}
+				WalkManager.startPathWalking((NpcAI2)owner.getAi2(), target.getX(), target.getY(), target.getZ());
+			}
 		}
 	}
 
@@ -102,6 +115,9 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 			pointZ = z;
 			updateLastMove();
 			MoveTaskManager.getInstance().addCreature(owner);
+			if(currentRoute == null) {
+				WalkManager.startPathWalking((NpcAI2)owner.getAi2(), x, y, z);
+			}
 		}
 	}
 
@@ -171,7 +187,6 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 			case POINT:
 				offset = 0.1f;
 				moveToLocation(pointX, pointY, pointZ, offset);
-				break;
 		}
 		updateLastMove();
 	}
@@ -187,6 +202,20 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 			if (npc.getGameStats().checkGeoNeedUpdate()) {
 				cachedTargetZ = GeoService.getInstance().getZ(creature);
 			}
+			targetZ = cachedTargetZ;
+		}
+		return targetZ;
+	}
+
+	/**
+	 * @param npc
+	 * @param creature
+	 * @return
+	 */
+	public float getZ(Npc npc) {
+		float targetZ = npc.getZ();
+		if (GeoDataConfig.GEO_NPC_MOVE && npc.isInFlyingState()) {
+				cachedTargetZ = GeoService.getInstance().getZ(npc);
 			targetZ = cachedTargetZ;
 		}
 		return targetZ;
@@ -388,13 +417,21 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 			log.warn("Bad Walker Id: " + owner.getNpcId() + " - point: " + oldPoint);
 			return;
 		}
+
 		if (currentPoint < (currentRoute.size() - 1)) {
 			currentPoint++;
 		}
 		else {
 			currentPoint = 0;
 		}
-		setRouteStep(currentRoute.get(currentPoint), currentRoute.get(oldPoint));
+		try {
+			setRouteStep(currentRoute.get(currentPoint), currentRoute.get(oldPoint));
+		}
+		catch (Exception e) {
+			log.info("[NpcMoveController] currentRoute.size(): "+currentRoute.size());
+			log.info("[NpcMoveController] currentPoint: "+currentPoint);
+			log.info("[NpcMoveController] oldPoint: "+oldPoint);
+		}
 	}
 
 	public int getWalkPause() {

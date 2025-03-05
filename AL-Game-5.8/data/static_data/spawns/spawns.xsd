@@ -189,6 +189,7 @@
         <xs:attribute name="npc_id" type="xs:int"/>
         <xs:attribute name="pool" type="xs:int" use="optional"/>
         <xs:attribute name="respawn_time" type="xs:int"/>
+		<xs:attribute name="random_walk" type="xs:int"/>
         <xs:attribute name="handler" type="SpawnHandlerType"/>
         <xs:attribute name="custom" type="xs:boolean" use="optional" default="false"/>
         <xs:attribute name="difficult_id" type="xs:byte"/>

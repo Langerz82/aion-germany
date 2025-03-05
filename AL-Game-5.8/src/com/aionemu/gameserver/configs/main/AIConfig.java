@@ -57,4 +57,10 @@ public class AIConfig {
 	 */
 	@Property(key = "gameserver.npcshouts.enable", defaultValue = "false")
 	public static boolean SHOUTS_ENABLE;
+	/**
+	 * Pathfinding steps.
+	 */
+	@Property(key = "gameserver.npcmovement.pathfinding.steps", defaultValue = "2.0")
+	public static float PATHFINDING_STEPS;
+
 }

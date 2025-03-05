@@ -447,7 +447,7 @@ public class SpawnsData2 {
 
 			oldGroup = data.getSpawnsForNpc(visibleObject.getWorldId(), spawn.getNpcId());
 			if (oldGroup == null) {
-				oldGroup = new Spawn(spawn.getNpcId(), spawn.getRespawnTime(), spawn.getHandlerType());
+				oldGroup = new Spawn(spawn.getNpcId(), spawn.getRespawnTime(), spawn.getRandomWalk(), spawn.getHandlerType());
 				addGroup = true;
 			}
 		}

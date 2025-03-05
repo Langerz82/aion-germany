@@ -33,7 +33,7 @@
             depends="init"
             description="Compile the source.">
 
-        <javac destdir="${build.classes}" optimize="on" debug="on" nowarn="off" source="1.7" target="1.7" includeantruntime="false">       	
+        <javac destdir="${build.classes}" optimize="on" debug="on" nowarn="on" source="1.8" target="1.8" includeantruntime="false">       	
         	<src path="${src}"/>
             <classpath refid="classpath"/> 
         </javac>

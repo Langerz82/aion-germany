@@ -42,6 +42,8 @@ public class Spawn {
 	private int npcId;
 	@XmlAttribute(name = "respawn_time")
 	private Integer respawnTime = 0;
+	@XmlAttribute(name = "random_walk")
+	private Integer randomWalk = 0;
 	@XmlAttribute(name = "pool")
 	private Integer pool = 0;
 	@XmlAttribute(name = "difficult_id")
@@ -60,9 +62,10 @@ public class Spawn {
 	public Spawn() {
 	}
 
-	public Spawn(int npcId, int respawnTime, SpawnHandlerType handler) {
+	public Spawn(int npcId, int respawnTime, int randomWalk, SpawnHandlerType handler) {
 		this.npcId = npcId;
 		this.respawnTime = respawnTime;
+		this.randomWalk = randomWalk;
 		this.handler = handler;
 	}
 
@@ -98,6 +101,10 @@ public class Spawn {
 
 	public int getRespawnTime() {
 		return respawnTime;
+	}
+
+	public int getRandomWalk() {
+		return randomWalk;
 	}
 
 	public SpawnHandlerType getSpawnHandlerType() {

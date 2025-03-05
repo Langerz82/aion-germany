@@ -17,6 +17,11 @@
 package com.aionemu.gameserver.ai2.manager;
 
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.ai2.AIState;
@@ -34,11 +39,14 @@ import com.aionemu.gameserver.utils.MathUtil;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.geo.GeoService;
 
+import com.aionemu.gameserver.path.Cell;
+import com.aionemu.gameserver.path.Pathfinder;
+
 /**
  * @author ATracer
  */
 public class WalkManager {
-
+	private static final Logger log = LoggerFactory.getLogger(WalkManager.class);
 	private static final int WALK_RANDOM_RANGE = 5;
 
 	/**
@@ -69,6 +77,57 @@ public class WalkManager {
 		else {
 			return startRandomWalking(npcAI, owner);
 		}
+		return true;
+	}
+
+	public static boolean startPathWalking(NpcAI2 npcAI, float px, float py, float pz) {
+		if (startPathWalking(npcAI, npcAI.getOwner(), px, py, pz)) {
+			npcAI.setStateIfNot(AIState.WALKING);
+			npcAI.setSubStateIfNot(AISubState.WALK_PATH);
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * @param owner
+	 */
+	protected static boolean startPathWalking(NpcAI2 npcAI, Npc owner, float px, float py, float pz) {
+		if (owner.isInFlyingState())
+			return false;
+
+		pz = owner.getMoveController().getZ(owner);
+		final Cell cellOwner = new Cell(owner.getX(), owner.getY(), owner.getZ());
+
+		final Cell cellDest = new Cell(px, py, pz);
+		final Pathfinder pathfinder = new Pathfinder(cellOwner, cellDest,
+			Pathfinder.DIAGONAL_NEIGHBORS, AIConfig.PATHFINDING_STEPS, 1f);
+		pathfinder.setOwner(owner);
+		final ArrayList<Cell> path = pathfinder.findPath();
+		List<RouteStep> route = new ArrayList<RouteStep>();
+		if (path.size() == 0)
+			return false;
+
+		int routeStepIndex = 0;
+		for(Cell cell : path) {
+			System.out.println(cell);
+			RouteStep routeStep = new RouteStep(cell.x, cell.y, cell.z, 0);
+			routeStep.setRouteStep(++routeStepIndex);
+			route.add(routeStep);
+			//log.info("[WalkManager] cell.x: " + cell.x + " cell.y: " + cell.y + " cell.z " + cell.z);
+		}
+		RouteStep routeStep = new RouteStep(px, py, pz, 0);
+		//log.info("[WalkManager] end.x: " + px + " end.y: " + py + " end.z " + pz);
+		routeStep.setRouteStep(++routeStepIndex);
+		route.add(routeStep);
+		//log.info("route_size:" + route.size());
+
+		int currentPoint = owner.getMoveController().getCurrentPoint();
+		RouteStep nextStep = findNextRoutStep(owner, route);
+		owner.getMoveController().setCurrentRoute(route);
+		owner.getMoveController().setRouteStep(nextStep, route.get(currentPoint));
+		EmoteManager.emoteStartWalking(npcAI.getOwner());
+		owner.getMoveController().moveToNextPoint();
 		return true;
 	}
 
