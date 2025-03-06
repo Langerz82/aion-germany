@@ -103,7 +103,7 @@ public class WalkManager {
 		final Pathfinder pathfinder = new Pathfinder(cellOwner, cellDest,
 			Pathfinder.DIAGONAL_NEIGHBORS, AIConfig.PATHFINDING_STEPS, 1f);
 		pathfinder.setOwner(owner);
-		final ArrayList<Cell> path = pathfinder.findPath();
+		final ArrayList<Cell> path = pathfinder.findPath(AIConfig.PATHFINDING_ITERATIONS);
 		List<RouteStep> route = new ArrayList<RouteStep>();
 		if (path.size() == 0)
 			return false;

@@ -62,5 +62,10 @@ public class AIConfig {
 	 */
 	@Property(key = "gameserver.npcmovement.pathfinding.steps", defaultValue = "2.0")
 	public static float PATHFINDING_STEPS;
+	/**
+	 * Pathfinding iterations.
+	 */
+	@Property(key = "gameserver.npcmovement.pathfinding.iterations", defaultValue = "200")
+	public static int PATHFINDING_ITERATIONS;
 
 }

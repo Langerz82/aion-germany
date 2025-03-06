@@ -112,7 +112,9 @@ public class Pathfinder {
             // Found the goal
             //log.info("[pathfinder] current: "+current.toString());
             //log.info("[pathfinder] end: "+end.toString());
-            if(current.closeto(end, this.offset)) {
+            float dt = current.diff(end);
+            log.info("[pathfinder] dt: "+dt);
+            if(current.closeto(end, this.offset * 2)) {
                 break;
             }
 
@@ -151,6 +153,11 @@ public class Pathfinder {
 
             loops++;
         }
+
+        log.info("[Pathfinder] loops:"+loops);
+
+        if (loops >= maxLoops)
+            return new ArrayList<Cell>();
 
         final ArrayList<Cell> path = new ArrayList<>();
         Cell cur = current;

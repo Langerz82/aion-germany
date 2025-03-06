@@ -30,10 +30,14 @@ public class Cell {
 
     public boolean closeto(Cell c, float offset) {
         boolean pos = Math.abs(c.x-x) <= offset && Math.abs(c.y-y) <= offset; //&&
-        if (pos)
-          return pos && Math.abs(c.z-z) <= offset;
+        //if (pos)
+          //return pos && Math.abs(c.z-z) <= offset;
         return pos;
           //Math.abs(c.z-z) < offset;
+    }
+
+    public float diff(Cell c) {
+      return Math.abs(c.x-x) + Math.abs(c.y-y);
     }
 
     public boolean isBlocked(Cell c, float tolerance) {
