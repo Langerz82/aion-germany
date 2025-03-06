@@ -40,7 +40,7 @@ public class Cell {
       return Math.abs(c.x-x) + Math.abs(c.y-y);
     }
 
-    public boolean isBlocked(Cell c, float tolerance) {
+    public boolean isBlocked(Cell c, float zTolerance) {
       float dx = Math.abs(c.x-x);
       float dy = Math.abs(c.y-y);
       float tx = (float) Math.pow(dx,2f);
@@ -48,7 +48,7 @@ public class Cell {
 
       float dt = (float) Math.pow(tx + ty, 0.5f);
       float dz = Math.abs(c.z-z);
-      return (dz <= (dt * tolerance));
+      return (dz <= (dt * zTolerance));
     }
 
     public int hashCode() {

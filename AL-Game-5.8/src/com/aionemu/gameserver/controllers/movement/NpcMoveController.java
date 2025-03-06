@@ -212,11 +212,10 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 	 * @param creature
 	 * @return
 	 */
-	public float getZ(Npc npc) {
+	public float getZ(Npc npc, float x, float y, float z) {
 		float targetZ = npc.getZ();
-		if (GeoDataConfig.GEO_NPC_MOVE && npc.isInFlyingState()) {
-				cachedTargetZ = GeoService.getInstance().getZ(npc);
-			targetZ = cachedTargetZ;
+		if (GeoDataConfig.GEO_NPC_MOVE && !npc.isInFlyingState()) {
+			targetZ = GeoService.getInstance().getZ(npc.getWorldId(), x, y, z, 0, npc.getInstanceId());
 		}
 		return targetZ;
 	}

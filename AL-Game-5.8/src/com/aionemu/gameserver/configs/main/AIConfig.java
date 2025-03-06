@@ -53,10 +53,21 @@ public class AIConfig {
 	@Property(key = "gameserver.npcmovement.delay.maximum", defaultValue = "15")
 	public static int MAXIMUM_DELAY;
 	/**
+	 * Maximum z-axis slant in random move
+	 */
+	@Property(key = "gameserver.npcmovement.slant.maximum", defaultValue = "0.6")
+	public static float MAXIMUM_MOVE_SLANT;
+	/**
 	 * Npc Shouts activator
 	 */
 	@Property(key = "gameserver.npcshouts.enable", defaultValue = "false")
 	public static boolean SHOUTS_ENABLE;
+
+	/**
+	 * Pathfinding steps.
+	 */
+	@Property(key = "gameserver.npcmovement.pathfinding.enabled", defaultValue = "false")
+	public static boolean PATHFINDING_ENABLED;
 	/**
 	 * Pathfinding steps.
 	 */

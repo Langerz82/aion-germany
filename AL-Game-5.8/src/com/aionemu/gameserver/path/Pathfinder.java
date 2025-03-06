@@ -42,20 +42,20 @@ public class Pathfinder {
     private final Cell end;
     private final Cell[] neighbours;
     private Npc owner;
-    private final float offset;
-    private final float tolerance;
+    private final float gridStepping;
+    private final float zTolerance;
 
     public Pathfinder(final Cell start, final Cell end, final Cell[] neighbours,
-    float offset, float tolerance) {
+    float gridStepping, float zTolerance) {
         this.start = start;
         this.end = end;
         this.neighbours = neighbours;
-        this.offset = offset;
-        this.tolerance = tolerance;
+        this.gridStepping = gridStepping;
+        this.zTolerance = zTolerance;
         for (Cell neighbor : this.neighbours) {
-          neighbor.x *= offset;
-          neighbor.y *= offset;
-          neighbor.z *= offset;
+          neighbor.x *= gridStepping;
+          neighbor.y *= gridStepping;
+          neighbor.z *= gridStepping;
         }
     }
 
@@ -114,18 +114,18 @@ public class Pathfinder {
             //log.info("[pathfinder] end: "+end.toString());
             float dt = current.diff(end);
             log.info("[pathfinder] dt: "+dt);
-            if(current.closeto(end, this.offset * 2)) {
+            if(current.closeto(end, this.gridStepping * 2)) {
                 break;
             }
 
             // Generate children
             final ArrayList<Cell> children = new ArrayList<>();
             for(final Cell neighbor : neighbours) {
-                neighbor.z = this.owner.getMoveController().getZ(this.owner);
+                neighbor.z = this.owner.getMoveController().getZ(this.owner, neighbor.x, neighbor.y, this.owner.getZ());
                 final Cell child = new Cell(current.x + neighbor.x, current.y + neighbor.y, current.z + neighbor.z);
                 child.parent = current;
 
-                if (current.isBlocked(child, this.tolerance))
+                if (current.isBlocked(child, this.zTolerance))
                   continue;
 
                 children.add(child);

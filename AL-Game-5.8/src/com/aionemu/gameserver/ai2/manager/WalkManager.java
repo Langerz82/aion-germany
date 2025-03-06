@@ -81,6 +81,10 @@ public class WalkManager {
 	}
 
 	public static boolean startPathWalking(NpcAI2 npcAI, float px, float py, float pz) {
+		if (!GeoDataConfig.GEO_ENABLE || !GeoDataConfig.GEO_NPC_MOVE || !AIConfig.PATHFINDING_ENABLED) {
+			return false;
+		}
+
 		if (startPathWalking(npcAI, npcAI.getOwner(), px, py, pz)) {
 			npcAI.setStateIfNot(AIState.WALKING);
 			npcAI.setSubStateIfNot(AISubState.WALK_PATH);
@@ -96,12 +100,12 @@ public class WalkManager {
 		if (owner.isInFlyingState())
 			return false;
 
-		pz = owner.getMoveController().getZ(owner);
+		pz = owner.getMoveController().getZ(owner, px, py, pz);
 		final Cell cellOwner = new Cell(owner.getX(), owner.getY(), owner.getZ());
 
 		final Cell cellDest = new Cell(px, py, pz);
 		final Pathfinder pathfinder = new Pathfinder(cellOwner, cellDest,
-			Pathfinder.DIAGONAL_NEIGHBORS, AIConfig.PATHFINDING_STEPS, 1f);
+			Pathfinder.DIAGONAL_NEIGHBORS, AIConfig.PATHFINDING_STEPS, AIConfig.MAXIMUM_MOVE_SLANT);
 		pathfinder.setOwner(owner);
 		final ArrayList<Cell> path = pathfinder.findPath(AIConfig.PATHFINDING_ITERATIONS);
 		List<RouteStep> route = new ArrayList<RouteStep>();
@@ -333,6 +337,14 @@ public class WalkManager {
 						if (GeoDataConfig.GEO_ENABLE && GeoDataConfig.GEO_NPC_MOVE) {
 							byte flags = (byte) (CollisionIntention.PHYSICAL.getId() | CollisionIntention.DOOR.getId() | CollisionIntention.WALK.getId());
 							Vector3f loc = GeoService.getInstance().getClosestCollision(owner, owner.getX() + nextX, owner.getY() + nextY, owner.getZ(), true, flags);
+
+							float dxy = (Math.abs(nextX) + Math.abs(nextY)) * AIConfig.MAXIMUM_MOVE_SLANT;
+							float cxy = Math.abs(owner.getZ() - loc.z);
+							if (cxy > dxy) {
+									owner.getMoveController().moveToPoint(owner.getSpawn().getX(), owner.getSpawn().getY(), owner.getSpawn().getZ());
+									return;
+							}
+
 							owner.getMoveController().moveToPoint(loc.x, loc.y, loc.z);
 						}
 						else {
