@@ -191,7 +191,11 @@ public class SpawnTemplate {
 	}
 
 	public boolean hasRandomWalk() {
-		return randomWalk != 0;
+		if (randomWalk > 0)
+			return true;
+		if (spawnGroup.getRandomWalk() > 0)
+			return true;
+		return false;
 	}
 
 	public boolean isNoRespawn() {

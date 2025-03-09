@@ -88,11 +88,11 @@ public class MembershipConfig {
 	/**
 	 * Membership Welcome Messages (Regular, Premium, VIP)
 	 */
-	@Property(key = "gameserver.membership.welcome.message.regular", defaultValue = "Welcome to %s server.\nYour SERVER RATES:\nExp Rate: %d\nQuest Rate: %d\nDrop Rate: %d\n")
+	@Property(key = "gameserver.membership.welcome.message.regular", defaultValue = "Welcome to %s server.\nYour SERVER RATES:\nExp Rate: %.2f\nQuest Rate: %.2f\nDrop Rate: %.2f\n")
 	public static String WELCOME_REGULAR;
-	@Property(key = "gameserver.membership.welcome.message.premium", defaultValue = " Welcome to %s server.\nYour SERVER RATES:\nExp Rate: %d\nQuest Rate: %d\nDrop Rate: %d\n")
+	@Property(key = "gameserver.membership.welcome.message.premium", defaultValue = " Welcome to %s server.\nYour SERVER RATES:\nExp Rate: %.2f\nQuest Rate: %.2f\nDrop Rate: %.2f\n")
 	public static String WELCOME_PREMIUM;
-	@Property(key = "gameserver.membership.welcome.message.vip", defaultValue = " Welcome to %s server.\nYour SERVER RATES:\nExp Rate: %d\nQuest Rate: %d\nDrop Rate: %d\n")
+	@Property(key = "gameserver.membership.welcome.message.vip", defaultValue = " Welcome to %s server.\nYour SERVER RATES:\nExp Rate: %.2f\nQuest Rate: %.2f\nDrop Rate: %.2f\n")
 	public static String WELCOME_VIP;
 
 	/**

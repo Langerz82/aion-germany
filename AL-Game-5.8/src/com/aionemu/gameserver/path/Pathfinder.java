@@ -113,7 +113,7 @@ public class Pathfinder {
             //log.info("[pathfinder] current: "+current.toString());
             //log.info("[pathfinder] end: "+end.toString());
             float dt = current.diff(end);
-            log.info("[pathfinder] dt: "+dt);
+            //log.info("[pathfinder] dt: "+dt);
             if(current.closeto(end, this.gridStepping * 2)) {
                 break;
             }
@@ -154,7 +154,7 @@ public class Pathfinder {
             loops++;
         }
 
-        log.info("[Pathfinder] loops:"+loops);
+        //log.info("[Pathfinder] loops:"+loops);
 
         if (loops >= maxLoops)
             return new ArrayList<Cell>();

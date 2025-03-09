@@ -286,6 +286,7 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 		float newY = (targetDestY - ownerY) * distFraction + ownerY;
 		float newZ = (targetDestZ - ownerZ) * distFraction + ownerZ;
 		if ((ownerX == newX) && (ownerY == newY) && owner.getSpawn().getRandomWalk() > 0) {
+			World.getInstance().updatePosition(owner, newX, newY, newZ, heading, false);
 			return;
 		}
 		if (GeoDataConfig.GEO_NPC_MOVE && GeoDataConfig.GEO_ENABLE && owner.getAi2().getSubState() != AISubState.WALK_PATH && owner.getAi2().getState() != AIState.RETURNING && owner.getGameStats().getLastGeoZUpdate() < System.currentTimeMillis()) {
@@ -366,6 +367,10 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 		pointZ = 0;
 	}
 
+	public boolean hasCurrentRoute() {
+		return !(currentRoute == null);
+	}
+
 	/**
 	 * Walker
 	 *
@@ -430,6 +435,16 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 			log.info("[NpcMoveController] currentRoute.size(): "+currentRoute.size());
 			log.info("[NpcMoveController] currentPoint: "+currentPoint);
 			log.info("[NpcMoveController] oldPoint: "+oldPoint);
+		}
+
+		NpcAI2 npcAI = (NpcAI2) owner.getAi2();
+		if (npcAI != null && npcAI.isPathWalking && currentPoint == (currentRoute.size()-1)) {
+			//WalkManager.stopWalking((NpcAI2) owner.getAi2());
+			log.info("[NpcMoveController] currentRoute set to null.");
+			npcAI.isPathWalking = false;
+			setCurrentRoute(null);
+			WalkManager.startWalking(npcAI);
+			return;
 		}
 	}
 

@@ -464,7 +464,7 @@ public final class PlayerEnterWorldService {
 
 			// SM_MOTION
 			client.sendPacket(new SM_MOTION(player.getMotions().getMotions().values()));
-			
+
 			// MONSTERBOOK
 			MonsterbookService.getInstance().onLogin(player);
 
@@ -602,7 +602,7 @@ public final class PlayerEnterWorldService {
 
 			// SM_DISPUTE_LAND
 			DisputeLandService.getInstance().onLogin(player);
-			
+
 			//SM_EVENT_WINDOW
 			EventWindowService.getInstance().onLogin(player);
 
@@ -631,16 +631,16 @@ public final class PlayerEnterWorldService {
 
 			// SM_TERRITORY_LIST
 			TerritoryService.getInstance().onEnterWorld(player);
-			
+
 			client.sendPacket(new SM_YOUTUBE_VIDEO());
-			
+
 			// SM_UNK_12B
 			// client.sendPacket(new SM_UNK_12B()); // TODO - Null Pointer after Login
 
 			// SM_BOOST_EVENTS (new with Aion 5.1)
 			BoostEventService.getInstance().sendPacket(player); // TODO
 			//client.sendPacket(new SM_EVENT_BUFF(player, 2)); // TODO
-			
+
 			// SM_UNK_60
 			client.sendPacket(new SM_UNK_60()); // TODO
 
@@ -679,9 +679,9 @@ public final class PlayerEnterWorldService {
 			String serverMessageVip = null;
 
 			if (RateConfig.DISPLAY_RATE) {
-				String bufferRegular = String.format(MembershipConfig.WELCOME_REGULAR, GSConfig.SERVER_NAME, (int) (RateConfig.XP_RATE), (int) (RateConfig.QUEST_XP_RATE), (int) (RateConfig.DROP_RATE));
-				String bufferVip = String.format(MembershipConfig.WELCOME_VIP, GSConfig.SERVER_NAME, (int) (RateConfig.VIP_XP_RATE), (int) (RateConfig.VIP_QUEST_XP_RATE), (int) (RateConfig.VIP_DROP_RATE));
-				String bufferPremium = String.format(MembershipConfig.WELCOME_PREMIUM, GSConfig.SERVER_NAME, (int) (RateConfig.PREMIUM_XP_RATE), (int) (RateConfig.PREMIUM_QUEST_XP_RATE), (int) (RateConfig.PREMIUM_DROP_RATE));
+				String bufferRegular = String.format(MembershipConfig.WELCOME_REGULAR, GSConfig.SERVER_NAME, (RateConfig.XP_RATE), (RateConfig.QUEST_XP_RATE), (RateConfig.DROP_RATE));
+				String bufferVip = String.format(MembershipConfig.WELCOME_VIP, GSConfig.SERVER_NAME, (RateConfig.VIP_XP_RATE), (RateConfig.VIP_QUEST_XP_RATE), (RateConfig.VIP_DROP_RATE));
+				String bufferPremium = String.format(MembershipConfig.WELCOME_PREMIUM, GSConfig.SERVER_NAME, (RateConfig.PREMIUM_XP_RATE), (RateConfig.PREMIUM_QUEST_XP_RATE), (RateConfig.PREMIUM_DROP_RATE));
 				serverMessageRegular = bufferRegular;
 				bufferRegular = null;
 				serverMessagePremium = bufferPremium;

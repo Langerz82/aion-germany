@@ -23,8 +23,8 @@ import com.aionemu.gameserver.configs.network.NetworkConfig;
  * @co-author Voidstar
  */
 public enum CustomMessageId {
-	WELCOME_PREMIUM("Welcome Premium Member to %s server.\nPowered by " + getMaster() + ".\nSERVER RATES:\nExp Rate: %d\nQuest Rate: %d\nDrop Rate: %d"),
-	WELCOME_REGULAR("Welcome to %s server.\nPowered by " + getMaster() + ".\nSERVER RATES:\nExp Rate: %d\nQuest Rate: %d\nDrop Rate: %d"),
+	WELCOME_PREMIUM("Welcome Premium Member to %s server.\nPowered by " + getMaster() + ".\nSERVER RATES:\nExp Rate: %.2f\nQuest Rate: %.2f\nDrop Rate: %.2f"),
+	WELCOME_REGULAR("Welcome to %s server.\nPowered by " + getMaster() + ".\nSERVER RATES:\nExp Rate: %.2f\nQuest Rate: %.2f\nDrop Rate: %.2f"),
 	SERVER_REVISION("Server Revision: %-6s"),
 	WELCOME_BASIC("Welcome On "),
 	HOMEPAGE("Homepage:www.myserver.com"),

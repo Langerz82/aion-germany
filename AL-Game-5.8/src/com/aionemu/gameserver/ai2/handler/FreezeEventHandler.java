@@ -37,7 +37,7 @@ public class FreezeEventHandler {
 					ai.setStateIfNot(AIState.WALKING);
 					ai.setSubStateIfNot(AISubState.WALK_WAIT_GROUP);
 				}
-				else if (npc.getSpawn().getRandomWalk() > 0) {
+				else if (npc.getSpawn().getRandomWalk() > 0 && npc.getSpawn().getWalkerId() == null) {
 					ai.setStateIfNot(AIState.WALKING);
 					ai.setSubStateIfNot(AISubState.WALK_RANDOM);
 				}

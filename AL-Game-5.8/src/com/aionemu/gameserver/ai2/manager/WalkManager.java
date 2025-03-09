@@ -33,11 +33,13 @@ import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.geoEngine.collision.CollisionIntention;
 import com.aionemu.gameserver.geoEngine.math.Vector3f;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.walker.RouteStep;
 import com.aionemu.gameserver.model.templates.walker.WalkerTemplate;
 import com.aionemu.gameserver.utils.MathUtil;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.geo.GeoService;
+import com.aionemu.gameserver.world.World;
 
 import com.aionemu.gameserver.path.Cell;
 import com.aionemu.gameserver.path.Pathfinder;
@@ -53,6 +55,7 @@ public class WalkManager {
 	 * @param npcAI
 	 */
 	public static boolean startWalking(NpcAI2 npcAI) {
+		log.info("[WalkManager] startWalking");
 		npcAI.setStateIfNot(AIState.WALKING);
 		Npc owner = npcAI.getOwner();
 		WalkerTemplate template = DataManager.WALKER_DATA.getWalkerTemplate(owner.getSpawn().getWalkerId());
@@ -61,6 +64,7 @@ public class WalkManager {
 			startRouteWalking(npcAI, owner, template);
 		}
 		else {
+			log.info("[WalkManager] startRandomWalking");
 			return startRandomWalking(npcAI, owner);
 		}
 		return true;
@@ -85,9 +89,12 @@ public class WalkManager {
 			return false;
 		}
 
+		if (npcAI.ignorePath) {
+			npcAI.ignorePath = false;
+			return false;
+		}
+
 		if (startPathWalking(npcAI, npcAI.getOwner(), px, py, pz)) {
-			npcAI.setStateIfNot(AIState.WALKING);
-			npcAI.setSubStateIfNot(AISubState.WALK_PATH);
 			return true;
 		}
 		return false;
@@ -99,6 +106,9 @@ public class WalkManager {
 	protected static boolean startPathWalking(NpcAI2 npcAI, Npc owner, float px, float py, float pz) {
 		if (owner.isInFlyingState())
 			return false;
+
+		//if (owner.getMoveController().hasCurrentRoute())
+			//return false;
 
 		pz = owner.getMoveController().getZ(owner, px, py, pz);
 		final Cell cellOwner = new Cell(owner.getX(), owner.getY(), owner.getZ());
@@ -114,7 +124,6 @@ public class WalkManager {
 
 		int routeStepIndex = 0;
 		for(Cell cell : path) {
-			System.out.println(cell);
 			RouteStep routeStep = new RouteStep(cell.x, cell.y, cell.z, 0);
 			routeStep.setRouteStep(++routeStepIndex);
 			route.add(routeStep);
@@ -126,12 +135,16 @@ public class WalkManager {
 		route.add(routeStep);
 		//log.info("route_size:" + route.size());
 
+
 		int currentPoint = owner.getMoveController().getCurrentPoint();
 		RouteStep nextStep = findNextRoutStep(owner, route);
 		owner.getMoveController().setCurrentRoute(route);
 		owner.getMoveController().setRouteStep(nextStep, route.get(currentPoint));
 		EmoteManager.emoteStartWalking(npcAI.getOwner());
 		owner.getMoveController().moveToNextPoint();
+		npcAI.isPathWalking = true;
+		npcAI.setStateIfNot(AIState.WALKING);
+		npcAI.setSubStateIfNot(AISubState.WALK_PATH);
 		return true;
 	}
 
@@ -139,10 +152,35 @@ public class WalkManager {
 	 * @param npcAI
 	 * @param owner
 	 */
-	private static boolean startRandomWalking(NpcAI2 npcAI, Npc owner) {
+	private static boolean startRandomWalking(final NpcAI2 npcAI, final Npc owner) {
 		if (!AIConfig.ACTIVE_NPC_MOVEMENT) {
 			return false;
 		}
+
+		log.info("[WalkManager] startRandomWalking.");
+
+		if (AIConfig.RANDOMWALK_THRESHOLD) {
+			npcAI.randomWalk = false;
+			// This piece of code makes sure a player is in range.
+			for (Player player : World.getInstance().getAllPlayers()) {
+				if(!player.isOnline())
+					continue;
+				float dist = (float) MathUtil.getDistance(owner.getX(), owner.getY(), owner.getZ(),
+					player.getX(), player.getY(), player.getZ());
+				if (dist < AIConfig.RANDOMWALK_PLAYERMAXDIST) {
+					//log.info("randomWalk = true");
+					npcAI.randomWalk = true;
+					break;
+				}
+			}
+
+			if (!npcAI.randomWalk) {
+				npcAI.randomWalk = false;
+				log.info("[WalkManager] randomWalk abort.");
+			 	return false;
+		 	}
+		}
+
 		int randomWalkNr = owner.getSpawn().getRandomWalk();
 		if (randomWalkNr == 0) {
 			return false;
@@ -315,6 +353,16 @@ public class WalkManager {
 	/**
 	 * @param npcAI
 	 */
+	private static void returnToSpawn(NpcAI2 npcAI) {
+		log.info("[WalkManager] returnToSpawn");
+		final Npc owner = npcAI.getOwner();
+		npcAI.ignorePath = true;
+		owner.getMoveController().moveToPoint(owner.getSpawn().getX(), owner.getSpawn().getY(), owner.getSpawn().getZ());
+	}
+
+	/**
+	 * @param npcAI
+	 */
 	private static void chooseNextRandomPoint(final NpcAI2 npcAI) {
 		final Npc owner = npcAI.getOwner();
 		owner.getMoveController().abortMove();
@@ -329,7 +377,7 @@ public class WalkManager {
 			public void run() {
 				if (npcAI.isInState(AIState.WALKING)) {
 					if (distToSpawn > walkRange) {
-						owner.getMoveController().moveToPoint(owner.getSpawn().getX(), owner.getSpawn().getY(), owner.getSpawn().getZ());
+						returnToSpawn(npcAI);
 					}
 					else {
 						int nextX = Rnd.nextInt(walkRange * 2) - walkRange;
@@ -341,7 +389,7 @@ public class WalkManager {
 							float dxy = (Math.abs(nextX) + Math.abs(nextY)) * AIConfig.MAXIMUM_MOVE_SLANT;
 							float cxy = Math.abs(owner.getZ() - loc.z);
 							if (cxy > dxy) {
-									owner.getMoveController().moveToPoint(owner.getSpawn().getX(), owner.getSpawn().getY(), owner.getSpawn().getZ());
+									returnToSpawn(npcAI);
 									return;
 							}
 
@@ -365,6 +413,10 @@ public class WalkManager {
 		npcAI.setStateIfNot(AIState.IDLE);
 		npcAI.setSubStateIfNot(AISubState.NONE);
 		EmoteManager.emoteStopWalking(npcAI.getOwner());
+		/*if (npcAI.isPathWalking) {
+			//npcAI.getOwner().getMoveController().setCurrentRoute(null);
+			npcAI.isPathWalking = false;
+		}*/
 	}
 
 	/**

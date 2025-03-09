@@ -188,4 +188,8 @@ public class NpcAI2 extends AITemplate {
 	public boolean isMoveSupported() {
 		return getOwner().getGameStats().getMovementSpeedFloat() > 0 && !this.isInSubState(AISubState.FREEZE);
 	}
+
+	public boolean ignorePath;
+	public boolean randomWalk;
+	public boolean isPathWalking;
 }
