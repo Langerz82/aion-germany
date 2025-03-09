@@ -26,7 +26,7 @@
 			</spot>
 		</spawn>
 		<!-- Veteran Tursin Scout ||| TKrallScout_18_Ae -->
-		<spawn npc_id="210184" respawn_time="300">
+		<spawn npc_id="210184" respawn_time="300" random_walk="8">
 			<!-- 25 Spots -->
 			<spot x="2082.23" y="1049.92" z="127.76875" h="78" walker_id="9274D9117BE1D83E2DF51D8CE4BF75759416F740"/>
 			<spot x="2404.209" y="1504.6208" z="159.67062" h="20" walker_id="2B637ED0001BD793C9AB6E34B5A813431EC14D36"/>
@@ -55,7 +55,7 @@
 			<spot x="2065.92" y="1057.19" z="126.079" h="111"/>
 		</spawn>
 		<!-- Crack Tursin Tracker ||| TKrallScout_19_Ae -->
-		<spawn npc_id="210185" respawn_time="300">
+		<spawn npc_id="210185" respawn_time="300"  >
 			<!-- 16 Spots -->
 			<spot x="2479.08" y="1144.77" z="185.74" h="47"/>
 			<spot x="2336.55" y="1325.77" z="184.408" h="97"/>
@@ -75,57 +75,57 @@
 			<spot x="2316.17" y="1267.74" z="173.22684" h="2"/>
 		</spawn>
 		<!-- Wild Striped Tog ||| Tog_12_An -->
-		<spawn npc_id="210188" respawn_time="295">
+		<spawn npc_id="210188" respawn_time="295" random_walk="8">
 			<!-- 27 Spots -->
-			<spot x="1403.22" y="2058.58" z="145.536" h="65" random_walk="8"/>
-			<spot x="1349.23" y="2049.38" z="147.577" h="115" random_walk="8"/>
-			<spot x="1516.8" y="2164.9" z="161.855" h="84" random_walk="8"/>
-			<spot x="1271.68" y="2086.45" z="138.761" h="66" random_walk="8"/>
-			<spot x="1586.72" y="1922.66" z="156.924" h="50" random_walk="8"/>
-			<spot x="1542.51" y="2098.19" z="152.232" h="14" random_walk="8"/>
-			<spot x="1533.1" y="2019.36" z="149.8" h="50" random_walk="8"/>
-			<spot x="1308.46" y="2048.98" z="142.605" h="98" random_walk="8"/>
-			<spot x="1432.33" y="2207.17" z="148.948" h="1" random_walk="8"/>
-			<spot x="1553.01" y="2061.48" z="154.688" h="9" random_walk="8"/>
-			<spot x="1396.16" y="2127.08" z="144.328" h="44" random_walk="8"/>
-			<spot x="1492.62" y="2129.02" z="148.334" h="74" random_walk="8"/>
-			<spot x="1403.71" y="2179.84" z="150.439" h="29" random_walk="8"/>
-			<spot x="1377.14" y="2076.36" z="142.629" h="93" random_walk="8"/>
-			<spot x="1250.96" y="2063.8" z="144.715" h="22" random_walk="8"/>
-			<spot x="1397.69" y="2229.88" z="152.47" h="86" random_walk="8"/>
-			<spot x="1581.87" y="2035.68" z="153.25" h="69" random_walk="8"/>
-			<spot x="1521.79" y="2200.37" z="151.267" h="94" random_walk="8"/>
-			<spot x="1279.0" y="2053.29" z="142.946" h="106" random_walk="8"/>
-			<spot x="1580.2" y="1966.22" z="151.561" h="30" random_walk="8"/>
-			<spot x="1523.7" y="2129.18" z="153.971" h="57" random_walk="8"/>
-			<spot x="1452.2" y="2232.67" z="148.433" h="18" random_walk="8"/>
-			<spot x="1372.99" y="2160.75" z="148.105" h="76" random_walk="8"/>
-			<spot x="1429.81" y="2065.94" z="135.182" h="35" random_walk="8"/>
-			<spot x="1549.5" y="2197.04" z="153.307" h="19" random_walk="8"/>
-			<spot x="1576.23" y="2082.78" z="156.077" h="72" random_walk="8"/>
-			<spot x="1415.85" y="2258.31" z="162.933" h="91" random_walk="8"/>
+			<spot x="1403.22" y="2058.58" z="145.536" h="65"/>
+			<spot x="1349.23" y="2049.38" z="147.577" h="115"/>
+			<spot x="1516.8" y="2164.9" z="161.855" h="84"/>
+			<spot x="1271.68" y="2086.45" z="138.761" h="66"/>
+			<spot x="1586.72" y="1922.66" z="156.924" h="50"/>
+			<spot x="1542.51" y="2098.19" z="152.232" h="14"/>
+			<spot x="1533.1" y="2019.36" z="149.8" h="50"/>
+			<spot x="1308.46" y="2048.98" z="142.605" h="98"/>
+			<spot x="1432.33" y="2207.17" z="148.948" h="1"/>
+			<spot x="1553.01" y="2061.48" z="154.688" h="9"/>
+			<spot x="1396.16" y="2127.08" z="144.328" h="44"/>
+			<spot x="1492.62" y="2129.02" z="148.334" h="74"/>
+			<spot x="1403.71" y="2179.84" z="150.439" h="29"/>
+			<spot x="1377.14" y="2076.36" z="142.629" h="93"/>
+			<spot x="1250.96" y="2063.8" z="144.715" h="22"/>
+			<spot x="1397.69" y="2229.88" z="152.47" h="86"/>
+			<spot x="1581.87" y="2035.68" z="153.25" h="69"/>
+			<spot x="1521.79" y="2200.37" z="151.267" h="94"/>
+			<spot x="1279.0" y="2053.29" z="142.946" h="106"/>
+			<spot x="1580.2" y="1966.22" z="151.561" h="30"/>
+			<spot x="1523.7" y="2129.18" z="153.971" h="57"/>
+			<spot x="1452.2" y="2232.67" z="148.433" h="18"/>
+			<spot x="1372.99" y="2160.75" z="148.105" h="76"/>
+			<spot x="1429.81" y="2065.94" z="135.182" h="35"/>
+			<spot x="1549.5" y="2197.04" z="153.307" h="19"/>
+			<spot x="1576.23" y="2082.78" z="156.077" h="72"/>
+			<spot x="1415.85" y="2258.31" z="162.933" h="91"/>
 		</spawn>
 		<!-- Wild Striped Tog ||| Tog_13_An -->
-		<spawn npc_id="210189" respawn_time="60">
+		<spawn npc_id="210189" respawn_time="60" random_walk="8">
 			<!-- 15 Spots -->
-			<spot x="1577.01" y="2186.12" z="156.016" h="16" random_walk="8"/>
-			<spot x="1547.86" y="2294.85" z="149.75" h="59" random_walk="8"/>
-			<spot x="1512.34" y="2283.03" z="153.729" h="14" random_walk="8"/>
-			<spot x="1561.82" y="2262.28" z="153.572" h="12" random_walk="8"/>
-			<spot x="1605.01" y="2201.25" z="160.018" h="62" random_walk="8"/>
-			<spot x="1571.4" y="2214.77" z="159.588" h="73" random_walk="8"/>
-			<spot x="1578.64" y="2152.55" z="159.927" h="118" random_walk="8"/>
-			<spot x="1493.3" y="2245.52" z="153.046" h="46" random_walk="8"/>
-			<spot x="1542.97" y="2225.82" z="155.955" h="21" random_walk="8"/>
-			<spot x="1556.3" y="2140.25" z="157.662" h="74" random_walk="8"/>
-			<spot x="1472.6" y="2268.77" z="151.298" h="13" random_walk="8"/>
-			<spot x="1504.48" y="2334.15" z="158.863" h="61" random_walk="8"/>
-			<spot x="1548.03" y="2166.26" z="157.09" h="9" random_walk="8"/>
-			<spot x="1580.92" y="2114.0" z="158.672" h="98" random_walk="8"/>
-			<spot x="1602.83" y="2243.55" z="155.343" h="88" random_walk="8"/>
+			<spot x="1577.01" y="2186.12" z="156.016" h="16"/>
+			<spot x="1547.86" y="2294.85" z="149.75" h="59"/>
+			<spot x="1512.34" y="2283.03" z="153.729" h="14"/>
+			<spot x="1561.82" y="2262.28" z="153.572" h="12"/>
+			<spot x="1605.01" y="2201.25" z="160.018" h="62"/>
+			<spot x="1571.4" y="2214.77" z="159.588" h="73"/>
+			<spot x="1578.64" y="2152.55" z="159.927" h="118"/>
+			<spot x="1493.3" y="2245.52" z="153.046" h="46"/>
+			<spot x="1542.97" y="2225.82" z="155.955" h="21"/>
+			<spot x="1556.3" y="2140.25" z="157.662" h="74"/>
+			<spot x="1472.6" y="2268.77" z="151.298" h="13"/>
+			<spot x="1504.48" y="2334.15" z="158.863" h="61"/>
+			<spot x="1548.03" y="2166.26" z="157.09" h="9"/>
+			<spot x="1580.92" y="2114.0" z="158.672" h="98"/>
+			<spot x="1602.83" y="2243.55" z="155.343" h="88"/>
 		</spawn>
 		<!-- Veteran Tursin Smackstopper ||| TKrallWarrior_19_Ae -->
-		<spawn npc_id="210178" respawn_time="300">
+		<spawn npc_id="210178" respawn_time="300" random_walk="10">
 			<!-- 18 Spots -->
 			<spot x="2260.92" y="1154.18" z="158.873" h="22"/>
 			<spot x="2288.62" y="1154.72" z="160.723" h="96"/>
@@ -147,7 +147,7 @@
 			<spot x="2186.77" y="1188.64" z="168.46" h="72"/>
 		</spawn>
 		<!-- Tursin Senior Command Soldier ||| LF1A_TKrallWarrior_19_An -->
-		<spawn npc_id="216892" respawn_time="300">
+		<spawn npc_id="216892" respawn_time="300" random_walk="8">
 			<!-- 20 Spots -->
 			<spot x="2461.3508" y="1567.3007" z="142.86601" h="87"/>
 			<spot x="2426.766" y="1510.4484" z="158.0662" h="118"/>
@@ -171,7 +171,7 @@
 			<spot x="2210.42" y="946.92" z="142.71" h="1"/>
 		</spawn>
 		<!-- Crack Tursin Smackstopper ||| TKrallWarrior_20_Ae -->
-		<spawn npc_id="210179" respawn_time="300">
+		<spawn npc_id="210179" respawn_time="300" random_walk="8">
 			<!-- 16 Spots -->
 			<spot x="2356.01" y="1190.01" z="166.627" h="35"/>
 			<spot x="2393.42" y="1183.69" z="168.819" h="90"/>
@@ -191,7 +191,7 @@
 			<spot x="2586.84" y="1117.6" z="193.476" h="102"/>
 		</spawn>
 		<!-- Veteran Tursin Cracker ||| TKrallWarrior_17_Ae -->
-		<spawn npc_id="210176" respawn_time="300">
+		<spawn npc_id="210176" respawn_time="300" random_walk="8">
 			<!-- 29 Spots -->
 			<spot x="1776.62" y="878.171" z="125.021" h="67"/>
 			<spot x="1906.83" y="1056.19" z="133.875" h="42"/>
@@ -224,7 +224,7 @@
 			<spot x="1983.41" y="843.842" z="138.021" h="50"/>
 		</spawn>
 		<!-- Tursin Veteran Commander ||| TKrallWarrior_18_Ae -->
-		<spawn npc_id="210177" respawn_time="300">
+		<spawn npc_id="210177" respawn_time="300" random_walk="8">
 			<!-- 23 Spots -->
 			<spot x="2238.12" y="987.86" z="144.639" h="60"/>
 			<spot x="2249.79" y="1019.06" z="144.362" h="79"/>
@@ -251,7 +251,7 @@
 			<spot x="2483.6677" y="1569.0985" z="138.56775" h="40"/>
 		</spawn>
 		<!-- Veteran Tursin Scout ||| TKrallScout_17_Ae -->
-		<spawn npc_id="210183" respawn_time="300">
+		<spawn npc_id="210183" respawn_time="300" random_walk="8">
 			<!-- 30 Spots -->
 			<spot x="1972.05" y="831.437" z="140.488" h="15"/>
 			<spot x="1779.29" y="1061.23" z="117.20999" h="110" walker_id="AC868D9B4262BCFAC67F9640297E2694D349C3E3"/>
@@ -285,7 +285,7 @@
 			<spot x="1878.77" y="783.233" z="142.125" h="32"/>
 		</spawn>
 		<!-- Brownbeak Airon ||| Hiiv_9_n -->
-		<spawn npc_id="210203" respawn_time="295">
+		<spawn npc_id="210203" respawn_time="295" random_walk="8">
 			<!-- 16 Spots -->
 			<spot x="1574.94" y="1368.8" z="99.3506" h="20"/>
 			<spot x="1587.34" y="1349.43" z="99.125" h="80"/>
@@ -309,7 +309,7 @@
 			<spot x="1609.87" y="2414.64" z="133.25" h="109"/>
 		</spawn>
 		<!-- Giant Rakeclaw Frillneck ||| FrillfaimamA_15_An -->
-		<spawn npc_id="210200" respawn_time="60">
+		<spawn npc_id="210200" respawn_time="60" random_walk="8">
 			<!-- 25 Spots -->
 			<spot x="1566.43" y="2415.75" z="135.223" h="9"/>
 			<spot x="1578.91" y="2428.75" z="134.318" h="4"/>
@@ -342,7 +342,7 @@
 			<spot x="1457.2" y="2012.81" z="138.577" h="55"/>
 		</spawn>
 		<!-- Brownbeak Airon ||| Hiiv_10_n -->
-		<spawn npc_id="210204" respawn_time="295">
+		<spawn npc_id="210204" respawn_time="295" random_walk="8">
 			<!-- 24 Spots -->
 			<spot x="1882.74" y="1459.2" z="99.0" h="119"/>
 			<spot x="1829.24" y="1577.35" z="99.1725" h="61"/>
@@ -370,7 +370,7 @@
 			<spot x="1555.47" y="1282.82" z="99.0918" h="74"/>
 		</spawn>
 		<!-- Glade Pluma ||| lupyllini_15_n -->
-		<spawn npc_id="210194" respawn_time="295">
+		<spawn npc_id="210194" respawn_time="295" random_walk="8">
 			<!-- 15 Spots -->
 			<spot x="1543.64" y="2268.1" z="152.48" h="13" random_walk="8"/>
 			<spot x="1574.17" y="2297.38" z="148.228" h="47" random_walk="8"/>
@@ -389,7 +389,7 @@
 			<spot x="1791.91" y="2418.17" z="155.28" h="114" random_walk="8"/>
 		</spawn>
 		<!-- Leaf Pluma ||| lupyllini_13_n -->
-		<spawn npc_id="210193" respawn_time="295">
+		<spawn npc_id="210193" respawn_time="295" random_walk="8">
 			<!-- 29 Spots -->
 			<spot x="1636.79" y="2095.68" z="166.238" h="100"/>
 			<spot x="1435.6" y="1939.51" z="133.781" h="65" random_walk="8"/>
@@ -422,7 +422,7 @@
 			<spot x="1479.11" y="1909.42" z="139.138" h="24" random_walk="8"/>
 		</spawn>
 		<!-- Fierce Waterworm ||| WaterWorm_19_An -->
-		<spawn npc_id="210210" respawn_time="295">
+		<spawn npc_id="210210" respawn_time="295" random_walk="8">
 			<!-- 5 Spots -->
 			<spot x="2424.96" y="1804.27" z="109.142" h="25"/>
 			<spot x="2389.8" y="1740.25" z="109.375" h="38"/>
@@ -431,7 +431,7 @@
 			<spot x="2360.93" y="1873.14" z="108.875" h="32"/>
 		</spawn>
 		<!-- Ferocious Gryphu ||| Condor_15_An -->
-		<spawn npc_id="210271" respawn_time="295">
+		<spawn npc_id="210271" respawn_time="295" random_walk="8">
 			<!-- 30 Spots -->
 			<spot x="1209.47" y="2755.06" z="208.607" h="92"/>
 			<spot x="1387.33" y="2725.18" z="218.449" h="56"/>
@@ -465,7 +465,7 @@
 			<spot x="1191.73" y="2759.32" z="209.265" h="34"/>
 		</spawn>
 		<!-- Mountain Abex ||| Fethlot_15_n -->
-		<spawn npc_id="210270" respawn_time="295">
+		<spawn npc_id="210270" respawn_time="295" random_walk="8">
 			<!-- 9 Spots -->
 			<spot x="1194.33" y="2729.35" z="209.459" h="50"/>
 			<spot x="1233.42" y="2737.23" z="213.826" h="120"/>
@@ -478,7 +478,7 @@
 			<spot x="1219.46" y="2658.34" z="205.25" h="99" walker_id="129EEE7AEC8BE6B730C538D8710DFA6EF65CFAD4"/>
 		</spawn>
 		<!-- Sharphorn Starcrab ||| Starcrab_10_n -->
-		<spawn npc_id="210269" respawn_time="295">
+		<spawn npc_id="210269" respawn_time="295" random_walk="8">
 			<!-- 29 Spots -->
 			<spot x="1652.94" y="1327.84" z="105.41" h="37" random_walk="10"/>
 			<spot x="1531.66" y="1485.36" z="104.187" h="40" random_walk="10"/>
@@ -511,7 +511,7 @@
 			<spot x="1824.24" y="1623.27" z="100.135" h="11" random_walk="10"/>
 		</spawn>
 		<!-- Mud Potcrab ||| Potcrab_9_n -->
-		<spawn npc_id="210268" respawn_time="295">
+		<spawn npc_id="210268" respawn_time="295" random_walk="8">
 			<!-- 37 Spots -->
 			<spot x="1724.4" y="1685.63" z="101.374" h="2"/>
 			<spot x="1470.02" y="1376.83" z="103.693" h="48"/>
@@ -552,7 +552,7 @@
 			<spot x="1741.62" y="1384.75" z="107.859" h="116" random_walk="6"/>
 		</spawn>
 		<!-- Swamp Starturtle ||| Starturtle_11_n -->
-		<spawn npc_id="210267" respawn_time="30">
+		<spawn npc_id="210267" respawn_time="30" random_walk="8">
 			<!-- 13 Spots -->
 			<spot x="1479.78" y="1242.12" z="98.8549" h="34"/>
 			<spot x="1499.86" y="1228.5" z="99.5375" h="9"/>
@@ -569,7 +569,7 @@
 			<spot x="1503.47" y="1208.94" z="98.967" h="78"/>
 		</spawn>
 		<!-- Swamp Starturtle ||| Starturtle_10_n -->
-		<spawn npc_id="210266" respawn_time="30">
+		<spawn npc_id="210266" respawn_time="30" random_walk="8">
 			<!-- 12 Spots -->
 			<spot x="1464.2" y="1451.5" z="99.3" h="12" random_walk="5"/>
 			<spot x="1455.1" y="1424.3" z="10.2" h="67" random_walk="5"/>
@@ -585,7 +585,7 @@
 			<spot x="1495.3" y="1286.3" z="99.1" h="39" random_walk="5"/>
 		</spawn>
 		<!-- Spiral Lobnite ||| Lobnite_10_n -->
-		<spawn npc_id="210265" respawn_time="295">
+		<spawn npc_id="210265" respawn_time="295" random_walk="8">
 			<!-- 20 Spots -->
 			<spot x="1567.09" y="1529.7" z="107.625" h="25"/>
 			<spot x="1535.45" y="1387.39" z="102.869" h="118"/>
@@ -609,7 +609,7 @@
 			<spot x="1606.77" y="1664.93" z="101.375" h="51"/>
 		</spawn>
 		<!-- Spiral Lobnite ||| Lobnite_9_n -->
-		<spawn npc_id="210264" respawn_time="295">
+		<spawn npc_id="210264" respawn_time="295" random_walk="8">
 			<!-- 17 Spots -->
 			<spot x="1832.07" y="1492.2" z="103.101" h="38"/>
 			<spot x="1548.13" y="1455.84" z="107.524" h="28"/>
@@ -630,7 +630,7 @@
 			<spot x="1713.52" y="1672.04" z="101.893" h="61"/>
 		</spawn>
 		<!-- Mud Ribbit ||| Debrie_16_n -->
-		<spawn npc_id="210273" respawn_time="295">
+		<spawn npc_id="210273" respawn_time="295" random_walk="8">
 			<!-- 15 Spots -->
 			<spot x="1637.43" y="2831.58" z="237.02" h="12"/>
 			<spot x="1615.81" y="2822.79" z="242.281" h="109"/>
@@ -679,7 +679,7 @@
 			<spot x="2259.77" y="1671.79" z="124.38937" h="72" walker_id="5CFCC910F765FBCB7EF7FB1BAC495927069D4F37"/>
 		</spawn>
 		<!-- Sand Potcrab ||| Potcrab_19_n -->
-		<spawn npc_id="210275" respawn_time="295">
+		<spawn npc_id="210275" respawn_time="295" random_walk="8">
 			<!-- 17 Spots -->
 			<spot x="2441.9856" y="831.8331" z="100.381454" h="92"/>
 			<spot x="2462.9602" y="857.11224" z="100.04209" h="76"/>
@@ -700,7 +700,7 @@
 			<spot x="2165.808" y="655.2384" z="99.74544" h="104"/>
 		</spawn>
 		<!-- Sand Potcrab ||| Potcrab_18_n -->
-		<spawn npc_id="210331" respawn_time="295">
+		<spawn npc_id="210331" respawn_time="295" random_walk="8">
 			<!-- 24 Spots -->
 			<spot x="2398.526" y="781.1494" z="100.91052" h="7"/>
 			<spot x="2400.559" y="782.1271" z="101.41693" h="9"/>
@@ -809,7 +809,7 @@
 			<spot x="1145.77" y="1861.34" z="105.5" h="116"/>
 		</spawn>
 		<!-- Sharphorn Starcrab ||| Starcrab_11_n -->
-		<spawn npc_id="210320" respawn_time="295">
+		<spawn npc_id="210320" respawn_time="295" random_walk="8">
 			<!-- 9 Spots -->
 			<spot x="1840.83" y="1435.79" z="103.337" h="21" random_walk="10"/>
 			<spot x="1738.22" y="1662.74" z="102.954" h="56" random_walk="10"/>
@@ -822,7 +822,7 @@
 			<spot x="1854.51" y="1446.5" z="102.03" h="81" random_walk="10"/>
 		</spawn>
 		<!-- Aggressive Worg ||| Zaif_12_An_2 -->
-		<spawn npc_id="210326" respawn_time="295">
+		<spawn npc_id="210326" respawn_time="295" random_walk="8">
 			<!-- 6 Spots -->
 			<spot x="1546.97" y="1919.73" z="152.068" h="116"/>
 			<spot x="1339.97" y="2016.58" z="144.442" h="2"/>
@@ -832,7 +832,7 @@
 			<spot x="1322.9" y="2020.22" z="143.957" h="89"/>
 		</spawn>
 		<!-- Wild Spotted Tog ||| Tog_12_An_2 -->
-		<spawn npc_id="210325" respawn_time="295">
+		<spawn npc_id="210325" respawn_time="295" random_walk="8">
 			<!-- 6 Spots -->
 			<spot x="1557.81" y="1927.35" z="153.017" h="26"/>
 			<spot x="1320.45" y="2026.4" z="144.941" h="97"/>
@@ -842,7 +842,7 @@
 			<spot x="1398.36" y="2033.44" z="144.113" h="13"/>
 		</spawn>
 		<!-- Contaminated Malodor ||| Rafflesia_15_An -->
-		<spawn npc_id="210329" respawn_time="295">
+		<spawn npc_id="210329" respawn_time="295" random_walk="8">
 			<!-- 5 Spots -->
 			<spot x="1714.13" y="2351.14" z="137.304" h="18"/>
 			<spot x="1582.3" y="2304.61" z="146.841" h="118"/>
@@ -855,7 +855,7 @@
 			<spot x="2315.62" y="805.345" z="99.375" h="28" random_walk="10"/>
 		</spawn>
 		<!-- Contaminated Malodor ||| Rafflesia_16_An_2 -->
-		<spawn npc_id="210335" respawn_time="295">
+		<spawn npc_id="210335" respawn_time="295" random_walk="8">
 			<!-- 7 Spots -->
 			<spot x="1552.65" y="2488.51" z="138.817" h="6"/>
 			<spot x="1671.66" y="2469.22" z="134.777" h="80"/>
@@ -884,7 +884,7 @@
 			<spot x="663.06" y="2658.1" z="240.875" h="40" walker_id="462A0982F6C44838506D0014A98075AF764C7929"/>
 		</spawn>
 		<!-- Porgus ||| PorgussD1_4_n -->
-		<spawn npc_id="210337" respawn_time="295">
+		<spawn npc_id="210337" respawn_time="295" random_walk="8">
 			<!-- 16 Spots -->
 			<spot x="1317.81" y="2103.72" z="138.114" h="104" random_walk="10"/>
 			<spot x="1297.04" y="2086.58" z="138.589" h="12" random_walk="10"/>
@@ -910,7 +910,7 @@
 			<spot x="1643.56" y="2209.79" z="165.976" h="85"/>
 		</spawn>
 		<!-- Ancient Elyos Spirit ||| Undead_17_An -->
-		<spawn npc_id="210343" respawn_time="295">
+		<spawn npc_id="210343" respawn_time="295" random_walk="8">
 			<!-- 18 Spots -->
 			<spot x="2163.39" y="2303.74" z="255.429" h="109">
 				<temporary_spawn spawn_time="21.*.*" despawn_time="4.*.*"/>
@@ -968,7 +968,7 @@
 			</spot>
 		</spawn>
 		<!-- Gumi ||| Gumi_2_n -->
-		<spawn npc_id="210342" respawn_time="295">
+		<spawn npc_id="210342" respawn_time="295" random_walk="8">
 			<!-- 11 Spots -->
 			<spot x="1509.06" y="1243.16" z="104.58" h="60"/>
 			<spot x="1581.31" y="1025.92" z="98.9141" h="41"/>
@@ -983,7 +983,7 @@
 			<spot x="1523.82" y="1224.3" z="110.316" h="104"/>
 		</spawn>
 		<!-- Contaminated Pluma ||| lupyllini_17_n -->
-		<spawn npc_id="210344" respawn_time="295">
+		<spawn npc_id="210344" respawn_time="295" random_walk="8">
 			<!-- 24 Spots -->
 			<spot x="2163.64" y="2386.87" z="262.515" h="110" random_walk="6">
 				<temporary_spawn spawn_time="4.*.*" despawn_time="21.*.*"/>
@@ -1059,7 +1059,7 @@
 			</spot>
 		</spawn>
 		<!-- Miraju Gargoyle ||| Gargoyle_18_An -->
-		<spawn npc_id="210347" respawn_time="295">
+		<spawn npc_id="210347" respawn_time="295" random_walk="8">
 			<!-- 4 Spots -->
 			<spot x="2368.7" y="1824.72" z="204.356" h="95"/>
 			<spot x="2344.44" y="1850.72" z="204.356" h="29"/>
@@ -1075,7 +1075,7 @@
 			<spot x="2609.78" y="1122.8" z="194.837" h="115"/>
 		</spawn>
 		<!-- Veteran Tursin Healer ||| TKrallPriest_17_Ae -->
-		<spawn npc_id="210354" respawn_time="300">
+		<spawn npc_id="210354" respawn_time="300" random_walk="8">
 			<!-- 8 Spots -->
 			<spot x="2015.89" y="1015.08" z="138.875" h="39"/>
 			<spot x="2103.84" y="854.896" z="147.786" h="29"/>
@@ -1087,7 +1087,7 @@
 			<spot x="1861.4" y="782.385" z="141.399" h="3"/>
 		</spawn>
 		<!-- Veteran Tursin Healer ||| TKrallPriest_18_Ae -->
-		<spawn npc_id="210355" respawn_time="300">
+		<spawn npc_id="210355" respawn_time="300" random_walk="8">
 			<!-- 4 Spots -->
 			<spot x="2089.55" y="1113.2" z="128.7" h="53"/>
 			<spot x="2128.24" y="935.278" z="139.515" h="114"/>
@@ -1095,7 +1095,7 @@
 			<spot x="2065.2" y="1060.43" z="126.172" h="48"/>
 		</spawn>
 		<!-- Secret Tursin Healer ||| TKrallPriest_19_Ae -->
-		<spawn npc_id="210356" respawn_time="300">
+		<spawn npc_id="210356" respawn_time="300" random_walk="8">
 			<!-- 5 Spots -->
 			<spot x="2321.06" y="1311.74" z="181.484" h="48"/>
 			<spot x="2207.7" y="1216.6" z="163.5" h="62"/>
@@ -1104,7 +1104,7 @@
 			<spot x="2215.8" y="1330.07" z="173.5" h="103"/>
 		</spawn>
 		<!-- Secret Tursin Shaman ||| TKrallShaman_19_Ae -->
-		<spawn npc_id="210357" respawn_time="300">
+		<spawn npc_id="210357" respawn_time="300" random_walk="8">
 			<!-- 6 Spots -->
 			<spot x="2370.62" y="1119.91" z="165.75" h="46"/>
 			<spot x="2285.77" y="1241.35" z="158.611" h="60"/>
@@ -1114,7 +1114,7 @@
 			<spot x="2368.83" y="1081.64" z="169.75" h="72"/>
 		</spawn>
 		<!-- Aggressive Worg ||| Zaif_12_An_3 -->
-		<spawn npc_id="210359" respawn_time="295">
+		<spawn npc_id="210359" respawn_time="295" random_walk="8">
 			<!-- 5 Spots -->
 			<spot x="1313.76" y="1811.43" z="117.241" h="93"/>
 			<spot x="1415.83" y="1942.92" z="133.037" h="32"/>
@@ -1196,7 +1196,7 @@
 			<spot x="645.99" y="2545.93" z="226.894" h="63"/>
 		</spawn>
 		<!-- Swamp Slink ||| lepisma_10_n -->
-		<spawn npc_id="210064" respawn_time="30">
+		<spawn npc_id="210064" respawn_time="30" random_walk="8">
 			<!-- 33 Spots -->
 			<spot x="1771.17" y="1667.77" z="101.25" h="23"/>
 			<spot x="1741.06" y="1333.75" z="102.676" h="57"/>
@@ -1265,7 +1265,7 @@
 			<spot x="1609.14" y="1047.33" z="116.941" h="82"/>
 		</spawn>
 		<!-- Shipwrecked Deckhand ||| LehparBoatswain_20_An -->
-		<spawn npc_id="210073" respawn_time="295">
+		<spawn npc_id="210073" respawn_time="295" random_walk="4">
 			<!-- 10 Spots -->
 			<spot x="2141.1323" y="656.54956" z="116.351906" h="73"/>
 			<spot x="2116.18" y="642.26" z="114.345894" h="100"/>
@@ -1279,7 +1279,7 @@
 			<spot x="2088.0222" y="603.65784" z="122.470116" h="30"/>
 		</spawn>
 		<!-- Shipwrecked Crewmember ||| LehparCrew_19_An -->
-		<spawn npc_id="210074" respawn_time="295">
+		<spawn npc_id="210074" respawn_time="295" random_walk="4">
 			<!-- 15 Spots -->
 			<spot x="2177.95" y="675.459" z="100.71" h="14"/>
 			<spot x="2206.76" y="664.929" z="102.23" h="114"/>
@@ -1302,7 +1302,7 @@
 			<spot x="2116.24" y="634.439" z="100.129" h="74"/>
 		</spawn>
 		<!-- Spy ||| LehparAs_9_An -->
-		<spawn npc_id="210076" respawn_time="295">
+		<spawn npc_id="210076" respawn_time="295" random_walk="4">
 			<!-- 12 Spots -->
 			<spot x="1499.55" y="1523.94" z="100.875" h="76" random_walk="6"/>
 			<spot x="1612.88" y="1281.97" z="100.417" h="74" random_walk="6"/>
@@ -1318,7 +1318,7 @@
 			<spot x="1879.43" y="1426.41" z="100.257" h="70"/>
 		</spawn>
 		<!-- Peon ||| LehparWa_11_An -->
-		<spawn npc_id="210077" respawn_time="295">
+		<spawn npc_id="210077" respawn_time="295" random_walk="4">
 			<!-- 17 Spots -->
 			<spot x="1245.64" y="1843.11" z="120.819" h="103"/>
 			<spot x="1289.55" y="1784.12" z="115.243" h="85"/>
@@ -1343,7 +1343,7 @@
 			<spot x="2327.21" y="677.97" z="98.625" h="82" static_id="509"/>
 		</spawn>
 		<!-- Tursin Tribal Flag ||| Krall_Flag -->
-		<spawn npc_id="700037" respawn_time="295">
+		<spawn npc_id="700037" respawn_time="295" random_walk="8">
 			<!-- 11 Spots -->
 			<spot x="1868.37" y="786.71" z="141.056" h="30" static_id="314"/>
 			<spot x="2003.172" y="855.463" z="138.395" h="90" static_id="512"/>
@@ -1380,7 +1380,7 @@
 			<spot x="1011.901" y="2614.178" z="157.381" h="30" static_id="507"/>
 		</spawn>
 		<!-- Swamp Slink ||| lepisma_9_n -->
-		<spawn npc_id="210063" respawn_time="30">
+		<spawn npc_id="210063" respawn_time="30" random_walk="6">
 			<!-- 37 Spots -->
 			<spot x="1759.49" y="1398.23" z="109.5" h="93" random_walk="6"/>
 			<spot x="1711.84" y="1625.83" z="106.772" h="85"/>
@@ -1429,7 +1429,7 @@
 			<spot x="906.77" y="2444.06" z="188.4169" h="112" walker_id="000F8D0FB508B5496B669D5F0FB93819142BCCAB"/>
 		</spawn>
 		<!-- Dukaki Bruiser ||| DBrownieWWa_14_An -->
-		<spawn npc_id="210099" respawn_time="295">
+		<spawn npc_id="210099" respawn_time="295" random_walk="8">
 			<!-- 13 Spots -->
 			<spot x="892.067" y="2115.95" z="151.108" h="34"/>
 			<spot x="992.57" y="2363.44" z="179.554" h="94"/>
@@ -1455,7 +1455,7 @@
 			<spot x="1497.7173" y="1973.4875" z="142.53876" h="7" walker_id="DC21AE6483CB4FD3CF52E205F964BF00A73CD0AE"/>
 		</spawn>
 		<!-- Dukaki Champion ||| DBrownieWWa_16_An -->
-		<spawn npc_id="210100" respawn_time="295">
+		<spawn npc_id="210100" respawn_time="295" random_walk="4">
 			<!-- 6 Spots -->
 			<spot x="1590.35" y="1125.69" z="112.652" h="111"/>
 			<spot x="1664.39" y="1063.79" z="117.473" h="99"/>
@@ -1465,7 +1465,7 @@
 			<spot x="1860.92" y="1110.47" z="125.867" h="90"/>
 		</spawn>
 		<!-- Broken Rock Kalgolem ||| SouledStone_17_An -->
-		<spawn npc_id="210106" respawn_time="295">
+		<spawn npc_id="210106" respawn_time="295"  random_walk="8">
 			<!-- 23 Spots -->
 			<spot x="1886.81" y="2744.07" z="271.055" h="107"/>
 			<spot x="1965.61" y="2706.29" z="293.726" h="85"/>
@@ -1492,7 +1492,7 @@
 			<spot x="1869.55" y="2764.91" z="275.771" h="48"/>
 		</spawn>
 		<!-- Broken Rock Kalgolem ||| SouledStone_18_An -->
-		<spawn npc_id="210107" respawn_time="295">
+		<spawn npc_id="210107" respawn_time="295" random_walk="8">
 			<!-- 13 Spots -->
 			<spot x="2171.17" y="2364.44" z="257.025" h="94"/>
 			<spot x="2056.13" y="2376.15" z="265.789" h="39"/>
@@ -1681,7 +1681,7 @@
 			<spot x="2254.2444" y="662.7197" z="99.01993" h="60"/>
 		</spawn>
 		<!-- Dukaki Watcher ||| DBrownieWSc_14_An -->
-		<spawn npc_id="210091" respawn_time="295">
+		<spawn npc_id="210091" respawn_time="295"  random_walk="8">
 			<!-- 17 Spots -->
 			<spot x="738.685" y="2428.69" z="215.457" h="55"/>
 			<spot x="765.825" y="2527.72" z="218.353" h="120"/>
@@ -1702,7 +1702,7 @@
 			<spot x="649.952" y="2658.04" z="240.878" h="67"/>
 		</spawn>
 		<!-- Dukaki Watcher ||| DBrownieWSc_13_An -->
-		<spawn npc_id="210090" respawn_time="295">
+		<spawn npc_id="210090" respawn_time="295"  random_walk="8">
 			<!-- 10 Spots -->
 			<spot x="767.504" y="2463.35" z="215.866" h="51"/>
 			<spot x="730.637" y="2544.97" z="223.021" h="26"/>
@@ -1716,7 +1716,7 @@
 			<spot x="846.529" y="2427.2" z="192.55" h="98"/>
 		</spawn>
 		<!-- Dukaki Tracker ||| DBrownieMSc_14_An -->
-		<spawn npc_id="210089" respawn_time="295">
+		<spawn npc_id="210089" respawn_time="295" random_walk="8">
 			<!-- 9 Spots -->
 			<spot x="741.792" y="2625.33" z="221.164" h="117"/>
 			<spot x="650.109" y="2522.35" z="223.721" h="36"/>
@@ -1729,7 +1729,7 @@
 			<spot x="820.22" y="2565.33" z="205.042" h="17"/>
 		</spawn>
 		<!-- Dukaki Tracker ||| DBrownieMSc_13_An -->
-		<spawn npc_id="210088" respawn_time="295">
+		<spawn npc_id="210088" respawn_time="295" random_walk="8">
 			<!-- 20 Spots -->
 			<spot x="929.72" y="2097.94" z="149.64503" h="116" walker_id="1405095F93502FE17156F5C3F7C9EB8490414402"/>
 			<spot x="893.49" y="2035.83" z="163.21814" h="61" walker_id="2B8B12133CA8AF4EE46B370C8AA956E032318A6D"/>
@@ -1753,7 +1753,7 @@
 			<spot x="1013.7" y="2267.82" z="169.038" h="19"/>
 		</spawn>
 		<!-- Dukaki Berserker ||| DBrownieMWa_16_An -->
-		<spawn npc_id="210095" respawn_time="295">
+		<spawn npc_id="210095" respawn_time="295" random_walk="8">
 			<!-- 11 Spots -->
 			<spot x="1549.2" y="1120.21" z="115.14876" h="28" random_walk="8"/>
 			<spot x="1608.66" y="1069.77" z="114.13937" h="9" random_walk="8"/>
@@ -1768,7 +1768,7 @@
 			<spot x="1568.96" y="1115.09" z="113.694" h="96"/>
 		</spawn>
 		<!-- Dukaki Scrapper ||| DBrownieMWa_14_An -->
-		<spawn npc_id="210094" respawn_time="295">
+		<spawn npc_id="210094" respawn_time="295" random_walk="8">
 			<!-- 6 Spots -->
 			<spot x="662.05" y="2627.19" z="240.821" h="74"/>
 			<spot x="788.949" y="2666.65" z="220.539" h="19"/>
@@ -1895,7 +1895,7 @@
 			<spot x="856.26" y="2303.12" z="192.632" h="98"/>
 		</spawn>
 		<!-- Long-Legged Arachna ||| Octaside_11_An -->
-		<spawn npc_id="210128" respawn_time="295">
+		<spawn npc_id="210128" respawn_time="295" random_walk="6">
 			<!-- 26 Spots -->
 			<spot x="982.74" y="2497.15" z="186.5" h="49"/>
 			<spot x="969.69" y="2336.46" z="178.991" h="51"/>
@@ -1949,7 +1949,7 @@
 			<spot x="1281.6" y="2168.1" z="151.125" h="23"/>
 		</spawn>
 		<!-- Venomous Arachna ||| Octaside_15_An -->
-		<spawn npc_id="210130" respawn_time="30">
+		<spawn npc_id="210130" respawn_time="30"  random_walk="8">
 			<!-- 9 Spots -->
 			<spot x="1557.35" y="2456.81" z="135.29" h="117"/>
 			<spot x="1561.08" y="2446.74" z="135.183" h="13"/>
@@ -1962,31 +1962,31 @@
 			<spot x="1538.91" y="2431.29" z="137.933" h="9"/>
 		</spawn>
 		<!-- Violent Worg ||| Zaif_12_An -->
-		<spawn npc_id="210140" respawn_time="295">
+		<spawn npc_id="210140" respawn_time="295" random_walk="8">
 			<!-- 23 Spots -->
-			<spot x="1128.99" y="2203.18" z="164.35126" h="58" random_walk="8"/>
-			<spot x="1393.29" y="1984.89" z="139.34436" h="84" random_walk="8"/>
-			<spot x="1427.86" y="1967.2" z="132.03375" h="74" random_walk="8"/>
-			<spot x="1320.35" y="1945.24" z="131.52249" h="29" random_walk="8"/>
-			<spot x="1524.58" y="1943.43" z="145.51874" h="100" random_walk="8"/>
-			<spot x="1173.69" y="2249.25" z="153.84375" h="23" random_walk="8"/>
-			<spot x="1363.12" y="1958.06" z="143.7575" h="49" random_walk="8"/>
-			<spot x="1220.91" y="2328.26" z="148.87811" h="41" random_walk="8"/>
-			<spot x="1346.43" y="1924.94" z="136.66873" h="95" random_walk="8"/>
-			<spot x="1313.77" y="1995.48" z="142.50937" h="60" random_walk="8"/>
-			<spot x="1110.85" y="2343.01" z="164.39876" h="18" random_walk="8"/>
-			<spot x="1507.12" y="1921.91" z="145.56186" h="22" random_walk="8"/>
-			<spot x="1155.95" y="2356.06" z="174.26752" h="116" random_walk="8"/>
-			<spot x="1175.41" y="2282.91" z="154.51123" h="8" random_walk="8"/>
-			<spot x="1486.64" y="1940.97" z="139.955" h="67" random_walk="8"/>
-			<spot x="1179.95" y="2315.71" z="156.69562" h="4" random_walk="8"/>
-			<spot x="1095.36" y="2214.95" z="165.89438" h="75" random_walk="8"/>
-			<spot x="1454.1" y="1964.22" z="132.7425" h="35" random_walk="8"/>
-			<spot x="1138.77" y="2329.87" z="165.99503" h="2" random_walk="8"/>
-			<spot x="1357.15" y="1991.05" z="142.1125" h="117" random_walk="8"/>
-			<spot x="1299.24" y="1969.25" z="137.20375" h="6" random_walk="8"/>
-			<spot x="1141.43" y="2277.14" z="165.03497" h="115" random_walk="8"/>
-			<spot x="1335.01" y="1977.36" z="138.33624" h="92" random_walk="8"/>
+			<spot x="1128.99" y="2203.18" z="164.35126" h="58"/>
+			<spot x="1393.29" y="1984.89" z="139.34436" h="84"/>
+			<spot x="1427.86" y="1967.2" z="132.03375" h="74"/>
+			<spot x="1320.35" y="1945.24" z="131.52249" h="29"/>
+			<spot x="1524.58" y="1943.43" z="145.51874" h="100"/>
+			<spot x="1173.69" y="2249.25" z="153.84375" h="23"/>
+			<spot x="1363.12" y="1958.06" z="143.7575" h="49"/>
+			<spot x="1220.91" y="2328.26" z="148.87811" h="41"/>
+			<spot x="1346.43" y="1924.94" z="136.66873" h="95"/>
+			<spot x="1313.77" y="1995.48" z="142.50937" h="60"/>
+			<spot x="1110.85" y="2343.01" z="164.39876" h="18"/>
+			<spot x="1507.12" y="1921.91" z="145.56186" h="22"/>
+			<spot x="1155.95" y="2356.06" z="174.26752" h="116"/>
+			<spot x="1175.41" y="2282.91" z="154.51123" h="8"/>
+			<spot x="1486.64" y="1940.97" z="139.955" h="67"/>
+			<spot x="1179.95" y="2315.71" z="156.69562" h="4"/>
+			<spot x="1095.36" y="2214.95" z="165.89438" h="75"/>
+			<spot x="1454.1" y="1964.22" z="132.7425" h="35"/>
+			<spot x="1138.77" y="2329.87" z="165.99503" h="2"/>
+			<spot x="1357.15" y="1991.05" z="142.1125" h="117"/>
+			<spot x="1299.24" y="1969.25" z="137.20375" h="6"/>
+			<spot x="1141.43" y="2277.14" z="165.03497" h="115"/>
+			<spot x="1335.01" y="1977.36" z="138.33624" h="92"/>
 		</spawn>
 		<!-- Incense Burner of the Crimson Dragon ||| LF1a_fuming_pot -->
 		<spawn npc_id="700123" respawn_time="295">
@@ -1997,7 +1997,7 @@
 			<spot x="1183.0" y="1699.0" z="104.25" h="2"/>
 		</spawn>
 		<!-- Starving Worg ||| Zaif_10_An -->
-		<spawn npc_id="210138" respawn_time="295">
+		<spawn npc_id="210138" respawn_time="295" random_walk="8">
 			<!-- 16 Spots -->
 			<spot x="1398.8" y="1829.71" z="124.47749" h="87" random_walk="8"/>
 			<spot x="1529.91" y="1666.94" z="106.75374" h="70" random_walk="8"/>
@@ -2017,7 +2017,7 @@
 			<spot x="1339.46" y="1833.39" z="118.35625" h="36" random_walk="8"/>
 		</spawn>
 		<!-- Starving Worg ||| Zaif_11_An -->
-		<spawn npc_id="210139" respawn_time="295">
+		<spawn npc_id="210139" respawn_time="295" random_walk="8">
 			<!-- 7 Spots -->
 			<spot x="1483.71" y="1888.73" z="139.82062" h="82" random_walk="8"/>
 			<spot x="1317.21" y="1837.68" z="116.32562" h="107" random_walk="8"/>
@@ -2028,7 +2028,7 @@
 			<spot x="1461.44" y="1915.17" z="134.64499" h="66" random_walk="8"/>
 		</spawn>
 		<!-- Sea Starturtle ||| Starturtle_19_n -->
-		<spawn npc_id="210112" respawn_time="295">
+		<spawn npc_id="210112" respawn_time="295" random_walk="8">
 			<!-- 28 Spots -->
 			<spot x="2396.3955" y="768.7303" z="98.92064" h="25"/>
 			<spot x="2398.501" y="798.45416" z="99.66066" h="61"/>
@@ -2069,7 +2069,7 @@
 			<spot x="1496.5806" y="1975.1332" z="142.53876" h="7" walker_id="DC21AE6483CB4FD3CF52E205F964BF00A73CD0AE"/>
 		</spawn>
 		<!-- Rakeclaw Frillneck ||| FrillfaimamA_13_An -->
-		<spawn npc_id="210126" respawn_time="295">
+		<spawn npc_id="210126" respawn_time="295" random_walk="8">
 			<!-- 26 Spots -->
 			<spot x="1451.76" y="2118.92" z="143.0425" h="22" random_walk="8"/>
 			<spot x="1635.1" y="1974.92" z="161.02124" h="59" random_walk="8"/>
@@ -2119,7 +2119,7 @@
 			<spot x="1800.26" y="1749.53" z="164.347" h="115"/>
 		</spawn>
 		<!-- Contaminated Slime ||| Slime_16_An_1 -->
-		<spawn npc_id="210121" respawn_time="295">
+		<spawn npc_id="210121" respawn_time="295" random_walk="8">
 			<!-- 46 Spots -->
 			<spot x="1723.52" y="2492.1" z="149.721" h="82"/>
 			<spot x="1717.62" y="2479.93" z="151.377" h="58"/>
@@ -2204,7 +2204,7 @@
 			<spot x="2323.43" y="1801.47" z="195.264" h="74"/>
 		</spawn>
 		<!-- Tursin Loudmouth Chief ||| TKrallKeeper_20_Ae -->
-		<spawn npc_id="210708" respawn_time="300">
+		<spawn npc_id="210708" respawn_time="300" random_walk="4">
 			<!-- 7 Spots -->
 			<spot x="2281.7383" y="1247.0417" z="158.25" h="93"/>
 			<spot x="2267.8794" y="1250.2146" z="156.9152" h="103"/>
@@ -2215,7 +2215,7 @@
 			<spot x="2265.179" y="1318.7708" z="171.3942" h="60"/>
 		</spawn>
 		<!-- Tursin Loudmouth Chief ||| TKrallKeeper_19_Ae -->
-		<spawn npc_id="210159" respawn_time="295">
+		<spawn npc_id="210159" respawn_time="295" random_walk="4">
 			<!-- 8 Spots -->
 			<spot x="2339.1226" y="1093.1406" z="162.4205" h="40"/>
 			<spot x="2302.9954" y="1165.328" z="166.1233" h="86"/>
@@ -2227,7 +2227,7 @@
 			<spot x="2355.1912" y="1280.3812" z="180.076" h="11"/>
 		</spawn>
 		<!-- Veteran Tursin Loudmouth ||| TKrallWatcher_17_Ae -->
-		<spawn npc_id="210166" respawn_time="300">
+		<spawn npc_id="210166" respawn_time="300" random_walk="4">
 			<!-- 17 Spots -->
 			<spot x="1843.94" y="1016.34" z="117.328" h="89"/>
 			<spot x="2030.31" y="1065.07" z="127.259" h="23"/>
@@ -2248,7 +2248,7 @@
 			<spot x="1998.13" y="824.317" z="136.363" h="108"/>
 		</spawn>
 		<!-- Veteran Tursin Loudmouth Boss ||| TKrallWatcher_18_Ae -->
-		<spawn npc_id="210167" respawn_time="300">
+		<spawn npc_id="210167" respawn_time="300" random_walk="4">
 			<!-- 16 Spots -->
 			<spot x="2048.0977" y="848.4426" z="132.019" h="46"/>
 			<spot x="2072.864" y="795.6911" z="150.8669" h="30"/>
@@ -2268,7 +2268,7 @@
 			<spot x="2400.7053" y="1496.2493" z="161.29976" h="23"/>
 		</spawn>
 		<!-- Tursin Loudmouth ||| TKrallWatcher_15_An -->
-		<spawn npc_id="210164" respawn_time="295">
+		<spawn npc_id="210164" respawn_time="295" random_walk="8">
 			<!-- 6 Spots -->
 			<spot x="824.962" y="2075.37" z="175.094" h="41"/>
 			<spot x="824.424" y="2158.12" z="176.541" h="50"/>
@@ -2278,7 +2278,7 @@
 			<spot x="823.526" y="2166.91" z="176.541" h="113"/>
 		</spawn>
 		<!-- Veteran Tursin Watcher ||| TKrallWatcher_16_Ae -->
-		<spawn npc_id="210165" respawn_time="300">
+		<spawn npc_id="210165" respawn_time="300" random_walk="4">
 			<!-- 13 Spots -->
 			<spot x="1823.83" y="989.24" z="130.095" h="19"/>
 			<spot x="1851.09" y="1081.2" z="124.837" h="37"/>
@@ -2303,7 +2303,7 @@
 			<spot x="1337.0" y="2255.0" z="146.303" h="88"/>
 		</spawn>
 		<!-- Tursin Bigmouth ||| TKrallWarrior_15_An -->
-		<spawn npc_id="210174" respawn_time="295">
+		<spawn npc_id="210174" respawn_time="295" random_walk="6">
 			<!-- 8 Spots -->
 			<spot x="875.296" y="2573.1" z="195.231" h="93"/>
 			<spot x="803.257" y="2428.97" z="202.996" h="90"/>
@@ -2315,7 +2315,7 @@
 			<spot x="845.07" y="2167.53" z="163.721" h="19"/>
 		</spawn>
 		<!-- Veteran Tursin Wallarm ||| TKrallWarrior_16_Ae -->
-		<spawn npc_id="210175" respawn_time="300">
+		<spawn npc_id="210175" respawn_time="300"  random_walk="6">
 			<!-- 25 Spots -->
 			<spot x="1840.02" y="1051.83" z="125.887" h="111"/>
 			<spot x="1823.61" y="1064.64" z="124.04" h="71"/>
@@ -2344,7 +2344,7 @@
 			<spot x="1889.85" y="1108.68" z="143.35" h="118"/>
 		</spawn>
 		<!-- Veteran Tursin Shaman ||| TKrallShaman_17_Ae -->
-		<spawn npc_id="210170" respawn_time="300">
+		<spawn npc_id="210170" respawn_time="300" random_walk="6">
 			<!-- 14 Spots -->
 			<spot x="1833.29" y="758.173" z="142.75" h="102"/>
 			<spot x="2001.48" y="742.98" z="130.372" h="31"/>
@@ -2362,7 +2362,7 @@
 			<spot x="1923.47" y="910.339" z="130.75" h="109"/>
 		</spawn>
 		<!-- Veteran Tursin Shaman ||| TKrallShaman_18_Ae -->
-		<spawn npc_id="210171" respawn_time="300">
+		<spawn npc_id="210171" respawn_time="300" random_walk="6">
 			<!-- 15 Spots -->
 			<spot x="2044.94" y="1099.6" z="129.125" h="47"/>
 			<spot x="2105.37" y="939.537" z="139.404" h="49"/>
@@ -2381,7 +2381,7 @@
 			<spot x="2418.56" y="1479.12" z="164.93" h="4"/>
 		</spawn>
 		<!-- Crack Tursin Bigmouth ||| TKrallWatcher_19_Ae -->
-		<spawn npc_id="210168" respawn_time="300">
+		<spawn npc_id="210168" respawn_time="300" random_walk="6">
 			<!-- 11 Spots -->
 			<spot x="2491.96" y="1193.22" z="186.903" h="18"/>
 			<spot x="2288.54" y="1069.38" z="157.344" h="46"/>
@@ -2396,7 +2396,7 @@
 			<spot x="2297.01" y="1062.05" z="157.5" h="114"/>
 		</spawn>
 		<!-- Tursin Bigmouth Boss ||| TKrallWatcher_20_Ae -->
-		<spawn npc_id="210169" respawn_time="300">
+		<spawn npc_id="210169" respawn_time="300" random_walk="4">
 			<!-- 14 Spots -->
 			<spot x="2239.95" y="1187.56" z="159.323" h="66"/>
 			<spot x="2301.4" y="1225.87" z="166.5" h="54"/>
@@ -2531,7 +2531,7 @@
 			<spot x="1639.1465" y="1050.5951" z="118.2473" h="40"/>
 		</spawn>
 		<!-- Tursin Loudmouth ||| TKrallKeeper_15_An -->
-		<spawn npc_id="210157" respawn_time="295">
+		<spawn npc_id="210157" respawn_time="295"  random_walk="6">
 			<!-- 24 Spots -->
 			<spot x="992.2" y="2221.15" z="158.54373" h="113" walker_id="2B9C5ADF2DC65FBD46EA03C3E575E3391BF9D7C8" walker_index="1"/>
 			<spot x="921.34" y="2368.24" z="184.32875" h="1" walker_id="406C20A95EF9F47AD6B31F0048E4E9F3584F8E2C"/>
@@ -2641,7 +2641,7 @@
 			<spot x="1676.37" y="2270.09" z="166.773" h="35"/>
 		</spawn>
 		<!-- Arachna ||| Octaside_17_An -->
-		<spawn npc_id="210745" respawn_time="295">
+		<spawn npc_id="210745" respawn_time="295" random_walk="4">
 			<!-- 15 Spots -->
 			<spot x="1867.04" y="2548.53" z="300.755" h="5"/>
 			<spot x="2043.56" y="2641.64" z="300.0" h="55"/>
@@ -2664,7 +2664,7 @@
 			<spot x="1755.67" y="2462.62" z="151.855" h="2"/>
 		</spawn>
 		<!-- Tiny Cave Arachna ||| OctasideMini_14_An -->
-		<spawn npc_id="210744" respawn_time="295">
+		<spawn npc_id="210744" respawn_time="295" random_walk="4">
 			<!-- 13 Spots -->
 			<spot x="1210.67" y="2732.98" z="206.603" h="4"/>
 			<spot x="1205.98" y="2708.23" z="204.152" h="80"/>
@@ -2685,7 +2685,7 @@
 			<spot x="1677.24" y="2265.38" z="166.875" h="120"/>
 		</spawn>
 		<!-- Stumptail Tog ||| Tog_17_An -->
-		<spawn npc_id="210747" respawn_time="60">
+		<spawn npc_id="210747" respawn_time="60" random_walk="8">
 			<!-- 12 Spots -->
 			<spot x="2108.86" y="2143.46" z="201.315" h="51"/>
 			<spot x="2070.31" y="2153.0" z="203.673" h="17"/>
@@ -2705,7 +2705,7 @@
 			<spot x="1640.51" y="2230.46" z="162.903" h="112"/>
 		</spawn>
 		<!-- Elder Sparkle ||| Spakle_17_n -->
-		<spawn npc_id="210746" respawn_time="295">
+		<spawn npc_id="210746" respawn_time="295" random_walk="10">
 			<!-- 20 Spots -->
 			<spot x="2042.4" y="2364.39" z="266.925" h="42"/>
 			<spot x="2047.6" y="2337.26" z="264.875" h="15"/>
@@ -2733,7 +2733,7 @@
 			<spot x="1243.33" y="2268.87" z="142.933" h="19"/>
 		</spawn>
 		<!-- Contaminated Sylphen ||| Muta_15_n -->
-		<spawn npc_id="210741" respawn_time="295">
+		<spawn npc_id="210741" respawn_time="295" random_walk="8">
 			<!-- 13 Spots -->
 			<spot x="1779.43" y="2444.37" z="152.096" h="108"/>
 			<spot x="1777.26" y="2409.31" z="147.927" h="43"/>
@@ -2840,7 +2840,7 @@
 			<spot x="1621.51" y="1491.81" z="127.823" h="2"/>
 		</spawn>
 		<!-- Shaman ||| LehparPreist_11_An -->
-		<spawn npc_id="210699" respawn_time="295">
+		<spawn npc_id="210699" respawn_time="295" random_walk="4">
 			<!-- 9 Spots -->
 			<spot x="1201.01" y="1761.47" z="104.25" h="56"/>
 			<spot x="1189.05" y="1758.83" z="104.5" h="107"/>
@@ -2853,7 +2853,7 @@
 			<spot x="1257.11" y="1902.4" z="125.463" h="69"/>
 		</spawn>
 		<!-- Dukaki Follower ||| DBrownieWWoBL_17_An -->
-		<spawn npc_id="210696" respawn_time="295">
+		<spawn npc_id="210696" respawn_time="295" random_walk="8">
 			<!-- 10 Spots -->
 			<spot x="2286.01" y="1182.88" z="167.486" h="37"/>
 			<spot x="2299.4" y="1190.35" z="172.917" h="42"/>
@@ -2878,7 +2878,7 @@
 			<spot x="2305.43" y="1259.37" z="176.279" h="91"/>
 		</spawn>
 		<!-- Dukaki Follower ||| DBrownieMWaBL_17_An -->
-		<spawn npc_id="210695" respawn_time="295">
+		<spawn npc_id="210695" respawn_time="295" random_walk="8">
 			<!-- 8 Spots -->
 			<spot x="2303.11" y="1213.63" z="167.913" h="60"/>
 			<spot x="2319.2" y="1174.15" z="168.136" h="68"/>
@@ -2934,7 +2934,7 @@
 			<spot x="701.081" y="2591.51" z="231.839" h="28"/>
 		</spawn>
 		<!-- Thief ||| LehparAs_11_An -->
-		<spawn npc_id="210688" respawn_time="295">
+		<spawn npc_id="210688" respawn_time="295"  random_walk="6">
 			<!-- 29 Spots -->
 			<spot x="1243.98" y="1938.91" z="130.519" h="103"/>
 			<spot x="1256.31" y="1868.78" z="122.654" h="26"/>
@@ -3001,16 +3001,16 @@
 			<spot x="2313.1294" y="1796.4594" z="195.264" h="15" walker_id="10FAD1464F5BC2D06DEB0FB88922CC9804313DE0" fly="3"/>
 		</spawn>
 		<!-- Whirlpool Spirit ||| ElementalWater2_19_n -->
-		<spawn npc_id="210713" respawn_time="295">
+		<spawn npc_id="210713" respawn_time="295" random_walk="9">
 			<!-- 8 Spots -->
-			<spot x="2347.77" y="1760.67" z="109.375" h="64" random_walk="9"/>
-			<spot x="2414.0" y="1826.45" z="109.125" h="106" random_walk="9"/>
-			<spot x="2279.48" y="1824.48" z="109.375" h="10" random_walk="9"/>
-			<spot x="2299.85" y="1843.03" z="109.375" h="90" random_walk="9"/>
-			<spot x="2293.94" y="1784.41" z="109.375" h="55" random_walk="9"/>
-			<spot x="2358.75" y="1842.1" z="109.375" h="103" random_walk="9"/>
-			<spot x="2416.18" y="1764.24" z="109.375" h="112" random_walk="9"/>
-			<spot x="2322.55" y="1879.28" z="108.875" h="35" random_walk="9"/>
+			<spot x="2347.77" y="1760.67" z="109.375" h="64"/>
+			<spot x="2414.0" y="1826.45" z="109.125" h="106"/>
+			<spot x="2279.48" y="1824.48" z="109.375" h="10"/>
+			<spot x="2299.85" y="1843.03" z="109.375" h="90"/>
+			<spot x="2293.94" y="1784.41" z="109.375" h="55"/>
+			<spot x="2358.75" y="1842.1" z="109.375" h="103"/>
+			<spot x="2416.18" y="1764.24" z="109.375" h="112"/>
+			<spot x="2322.55" y="1879.28" z="108.875" h="35"/>
 		</spawn>
 		<!-- Titania ||| Titania -->
 		<spawn npc_id="203180" respawn_time="295">
@@ -3071,7 +3071,7 @@
 			<spot x="1636.0" y="1489.0" z="119.783" h="80"/>
 		</spawn>
 		<!-- Earth Spirit ||| ElementalEarth1_17_n -->
-		<spawn npc_id="210709" respawn_time="60">
+		<spawn npc_id="210709" respawn_time="60"  random_walk="8">
 			<!-- 24 Spots -->
 			<spot x="2156.59" y="2330.33" z="253.465" h="108"/>
 			<spot x="2041.83" y="2317.66" z="263.074" h="33"/>

@@ -211,7 +211,7 @@
 			<spot x="819.5191" y="1240.3235" z="118.625" h="105"/>
 		</spawn>
 		<!-- Rakelaw Slink ||| lepisma_3_n -->
-		<spawn npc_id="210065" respawn_time="295">
+		<spawn npc_id="210065" respawn_time="295" random_walk="10">
 			<spot x="1009.0825" y="1231.3246" z="100.114105" h="93"/>
 			<spot x="987.52716" y="1236.3286" z="99.48362" h="61"/>
 			<spot x="982.9794" y="1241.5526" z="99.25" h="12"/>
@@ -245,7 +245,7 @@
 			<spot x="684.2389" y="1086.1133" z="100.61877" h="67"/>
 		</spawn>
 		<!-- Rakelaw Slink ||| lepisma_4_n -->
-		<spawn npc_id="210066" respawn_time="295">
+		<spawn npc_id="210066" respawn_time="295" random_walk="10">
 			<spot x="588.49866" y="1033.8862" z="99.47951" h="4"/>
 			<spot x="583.35785" y="1036.4778" z="100.695274" h="72"/>
 			<spot x="622.9481" y="963.09125" z="99.96521" h="116"/>
@@ -284,7 +284,7 @@
 			<spot x="987.6265" y="1066.2012" z="112.38577" h="17"/>
 		</spawn>
 		<!-- Grain Snuffler ||| MerdionQ_2_n -->
-		<spawn npc_id="210079" respawn_time="295">
+		<spawn npc_id="210079" respawn_time="295" random_walk="10">
 			<spot x="943.25037" y="1065.5387" z="107.18988" h="20"/>
 			<spot x="949.9166" y="1082.9604" z="107.68476" h="33"/>
 			<spot x="928.3933" y="1074.3165" z="107.64447" h="13"/>
@@ -302,7 +302,7 @@
 			<spot x="1011.19714" y="1168.2794" z="113.80719" h="33"/>
 		</spawn>
 		<!-- Spore Forest Sylphen ||| Muta_7_n -->
-		<spawn npc_id="210084" respawn_time="295">
+		<spawn npc_id="210084" respawn_time="295" random_walk="10">
 			<spot x="416.90323" y="1705.8984" z="111.53868" h="20"/>
 			<spot x="409.2967" y="1701.9716" z="112.210464" h="43"/>
 			<spot x="350.43613" y="1705.1671" z="110.39949" h="80"/>
@@ -312,7 +312,7 @@
 			<spot x="267.35754" y="1645.9915" z="101.71456" h="72"/>
 		</spawn>
 		<!-- Dukaki Smacker ||| DBrownieWWa_7_An -->
-		<spawn npc_id="210092" respawn_time="295">
+		<spawn npc_id="210092" respawn_time="295" random_walk="10">
 			<spot x="393.22278" y="1874.0146" z="147.4538" h="100"/>
 			<spot x="368.84415" y="1885.0518" z="148.31021" h="102"/>
 			<spot x="351.6846" y="1918.2933" z="153.07458" h="43"/>
@@ -329,7 +329,7 @@
 			<spot x="211.49355" y="1906.5363" z="172.80667" h="60"/>
 		</spawn>
 		<!-- Dukaki Brawler ||| DBrownieMWa_7_An -->
-		<spawn npc_id="210096" respawn_time="295">
+		<spawn npc_id="210096" respawn_time="295" random_walk="10">
 			<spot x="428.6042" y="1852.464" z="138.6289" h="112"/>
 			<spot x="358.971" y="1840.0455" z="146.05067" h="61"/>
 			<spot x="299.95898" y="1875.5178" z="153.36792" h="26"/>
@@ -346,7 +346,7 @@
 			<spot x="196.61012" y="1897.1328" z="173.82141" h="65"/>
 		</spawn>
 		<!-- Dukaki Thug ||| DBrownieMWa_8_An -->
-		<spawn npc_id="210097" respawn_time="295">
+		<spawn npc_id="210097" respawn_time="295" random_walk="10">
 			<spot x="224.9555" y="1225.109" z="110.213806" h="60"/>
 			<spot x="211.62317" y="1215.2683" z="112.13764" h="15"/>
 			<spot x="234.72742" y="1194.7811" z="111.72963" h="43"/>
@@ -355,7 +355,7 @@
 			<spot x="234.82915" y="1130.4015" z="103.709045" h="90"/>
 		</spawn>
 		<!-- Dukaki Patrol ||| DBrownieWWa_8_An -->
-		<spawn npc_id="210101" respawn_time="295">
+		<spawn npc_id="210101" respawn_time="295" random_walk="10">
 			<spot x="234.31639" y="1210.6823" z="110.86865" h="55"/>
 			<spot x="246.92854" y="1200.3997" z="113.56166" h="60"/>
 			<spot x="242.7542" y="1189.4327" z="113.86629" h="43"/>
@@ -363,7 +363,7 @@
 			<spot x="250.08826" y="1118.4817" z="104.38953" h="118"/>
 		</spawn>
 		<!-- Pincerhead Sparkle ||| Spakle_8_n -->
-		<spawn npc_id="210114" respawn_time="295">
+		<spawn npc_id="210114" respawn_time="295" random_walk="10">
 			<spot x="198.69014" y="1545.8367" z="100.38557" h="52"/>
 			<spot x="194.65527" y="1548.1233" z="100.375" h="8"/>
 			<spot x="186.80902" y="1550.7051" z="100.622635" h="104"/>
@@ -381,7 +381,7 @@
 			<spot x="245.14427" y="1261.2349" z="106.33632" h="78"/>
 		</spawn>
 		<!-- Juvenile Sparkie ||| Spaky_1_n -->
-		<spawn npc_id="210115" respawn_time="295">
+		<spawn npc_id="210115" respawn_time="295" random_walk="10">
 			<spot x="1095.6621" y="1002.1373" z="126.74674" h="32"/>
 			<spot x="1108.798" y="1021.4967" z="125.9723" h="115"/>
 			<spot x="1167.2896" y="1028.5115" z="133.85652" h="9"/>
@@ -414,7 +414,7 @@
 			<spot x="1134.2911" y="1201.9552" z="137.9178" h="33"/>
 		</spawn>
 		<!-- Adult Sparkie ||| Spaky_6_n -->
-		<spawn npc_id="210119" respawn_time="295">
+		<spawn npc_id="210119" respawn_time="295" random_walk="10">
 			<spot x="538.2266" y="1532.2733" z="110.39597" h="79"/>
 			<spot x="595.1761" y="1553.2585" z="116.21777" h="114"/>
 			<spot x="516.1487" y="1572.9542" z="112.17535" h="37"/>
@@ -439,7 +439,7 @@
 			<spot x="657.56946" y="1639.7003" z="123.169266" h="25"/>
 		</spawn>
 		<!-- Elder Sparkie ||| Spaky_7_n -->
-		<spawn npc_id="210120" respawn_time="295">
+		<spawn npc_id="210120" respawn_time="295" random_walk="10">
 			<spot x="284.34692" y="1677.4609" z="108.06729" h="26"/>
 			<spot x="299.97125" y="1675.9181" z="110.46722" h="90"/>
 			<spot x="232.86137" y="1622.0006" z="100.178795" h="36"/>
@@ -452,7 +452,7 @@
 			<spot x="277.65182" y="1445.048" z="99.38536" h="54"/>
 		</spawn>
 		<!-- Striped Kerub ||| CherubimL_1_n -->
-		<spawn npc_id="210133" respawn_time="295">
+		<spawn npc_id="210133" respawn_time="295" random_walk="10" >
 			<spot x="1090.2328" y="973.29926" z="130.52095" h="105"/>
 			<spot x="1094.6034" y="999.3149" z="126.83513" h="35"/>
 			<spot x="1106.7214" y="1022.1338" z="126.043434" h="115"/>
@@ -476,7 +476,7 @@
 			<spot x="1124.6005" y="1167.4069" z="128.37546" h="81"/>
 		</spawn>
 		<!-- Striped Kerub ||| CherubimL_2_n -->
-		<spawn npc_id="210134" respawn_time="295">
+		<spawn npc_id="210134" respawn_time="295" random_walk="10">
 			<spot x="1051.8024" y="964.3608" z="132.73328" h="60"/>
 			<spot x="1031.459" y="1110.339" z="116.31639" h="31"/>
 			<spot x="1024.985" y="1112.9271" z="115.61214" h="8"/>
@@ -500,7 +500,7 @@
 			<spot x="1003.61316" y="1223.907" z="100.90612" h="26"/>
 		</spawn>
 		<!-- Wandering Kerub ||| CherubimL_3_n -->
-		<spawn npc_id="210135" respawn_time="295">
+		<spawn npc_id="210135" respawn_time="295" random_walk="10">
 			<spot x="891.47064" y="1076.0455" z="107.66466" h="22"/>
 			<spot x="891.7457" y="1086.6626" z="104.36437" h="21"/>
 			<spot x="900.6646" y="1107.8406" z="104.08678" h="61"/>
@@ -540,7 +540,7 @@
 			<spot x="545.1171" y="1188.8726" z="106.37347" h="97"/>
 		</spawn>
 		<!-- Wandering Kerub ||| CherubimL_4_n -->
-		<spawn npc_id="210136" respawn_time="295">
+		<spawn npc_id="210136" respawn_time="295" random_walk="10">
 			<spot x="636.6061" y="1151.6975" z="106.729034" h="81"/>
 			<spot x="606.64734" y="1157.8931" z="106.61902" h="97"/>
 			<spot x="664.51086" y="960.99133" z="102.830765" h="75"/>
@@ -568,7 +568,7 @@
 			<spot x="584.98883" y="1221.6714" z="113.85227" h="108"/>
 		</spawn>
 		<!-- Grey Worg ||| Zaif_6_An -->
-		<spawn npc_id="210142" respawn_time="295">
+		<spawn npc_id="210142" respawn_time="295" random_walk="10">
 			<spot x="519.9687" y="1602.7118" z="115.887375" h="118"/>
 			<spot x="524.07416" y="1606.9492" z="116.29834" h="19"/>
 			<spot x="474.7637" y="1639.7325" z="125.83472" h="0"/>
@@ -592,7 +592,7 @@
 			<spot x="629.44714" y="1686.8435" z="117.55631" h="54"/>
 		</spawn>
 		<!-- Grey Worg ||| Zaif_7_An -->
-		<spawn npc_id="210143" respawn_time="295">
+		<spawn npc_id="210143" respawn_time="295" random_walk="10">
 			<spot x="570.01416" y="1872.3424" z="138.95808" h="62"/>
 			<spot x="599.7943" y="1841.866" z="139.46506" h="101"/>
 			<spot x="613.74786" y="1883.2219" z="142.68561" h="95"/>
@@ -601,7 +601,7 @@
 			<spot x="671.92065" y="1869.3367" z="143.28873" h="81"/>
 		</spawn>
 		<!-- Dukaki Digger ||| DBrownieMWo_7_An -->
-		<spawn npc_id="210149" respawn_time="295">
+		<spawn npc_id="210149" respawn_time="295" random_walk="10">
 			<spot x="332.70764" y="1875.8433" z="152.10541" h="56"/>
 			<spot x="304.9764" y="1886.0361" z="155.87881" h="89"/>
 			<spot x="300.89078" y="1919.2356" z="155.80566" h="0"/>
@@ -621,7 +621,7 @@
 			<spot x="225.36208" y="1996.6519" z="151.91765" h="60"/>
 		</spawn>
 		<!-- Dukaki Worker ||| DBrownieWWo_7_An -->
-		<spawn npc_id="210154" respawn_time="295">
+		<spawn npc_id="210154" respawn_time="295" random_walk="10">
 			<spot x="337.6847" y="1939.122" z="154.625" h="90"/>
 			<spot x="302.58923" y="1929.739" z="154.0048" h="0"/>
 			<spot x="360.61917" y="1975.5725" z="154.07156" h="0"/>
@@ -642,7 +642,7 @@
 			<spot x="222.6655" y="1932.9855" z="171.76636" h="20"/>
 		</spawn>
 		<!-- Tursin Big Boss ||| TKrallKeeper_8_An -->
-		<spawn npc_id="210160" respawn_time="295">
+		<spawn npc_id="210160" respawn_time="295" random_walk="10">
 			<spot x="284.51996" y="1919.3699" z="155.84953" h="111"/>
 			<spot x="253.79395" y="1852.9841" z="149.90512" h="14"/>
 			<spot x="234.07716" y="1780.9924" z="134.05626" h="70"/>
@@ -661,7 +661,7 @@
 			<spot x="238.07693" y="1766.3583" z="131.78604" h="57"/>
 		</spawn>
 		<!-- Tursin Loudmouth ||| TKrallKeeper_9_An -->
-		<spawn npc_id="210161" respawn_time="295">
+		<spawn npc_id="210161" respawn_time="295" random_walk="10">
 			<spot x="225.92096" y="1081.2595" z="125.67845" h="60"/>
 			<spot x="213.60901" y="1048.2671" z="122.03319" h="0"/>
 			<spot x="269.0054" y="1051.1554" z="122.08388" h="45"/>
@@ -675,7 +675,7 @@
 			<spot x="268.21375" y="1028.8259" z="129.89554" h="0"/>
 		</spawn>
 		<!-- Tursin Outlaw ||| TKrallWarrior_8_An_1 -->
-		<spawn npc_id="210181" respawn_time="295">
+		<spawn npc_id="210181" respawn_time="295" random_walk="10">
 			<spot x="375.80008" y="1860.3391" z="146.00636" h="20"/>
 			<spot x="335.55563" y="1856.7441" z="150.72574" h="0"/>
 			<spot x="337.83945" y="1902.2518" z="159.2395" h="74"/>
@@ -687,7 +687,7 @@
 			<spot x="237.83452" y="1801.519" z="140.42108" h="20"/>
 		</spawn>
 		<!-- Tursin Loudmouth ||| TKrallWarrior_8_An_2 -->
-		<spawn npc_id="210182" respawn_time="295">
+		<spawn npc_id="210182" respawn_time="295" random_walk="10">
 			<spot x="210.67793" y="1231.383" z="110.84869" h="0"/>
 			<spot x="217.76924" y="1203.5792" z="112.006004" h="30"/>
 			<spot x="191.44116" y="1156.3828" z="119.55208" h="30"/>
@@ -695,7 +695,7 @@
 			<spot x="178.16362" y="1098.6007" z="128.28984" h="96"/>
 		</spawn>
 		<!-- Shade Fungen ||| Fungus_8_An -->
-		<spawn npc_id="210191" respawn_time="295">
+		<spawn npc_id="210191" respawn_time="295" random_walk="10">
 			<spot x="202.29608" y="1620.5168" z="106.125" h="82"/>
 			<spot x="184.33372" y="1605.3257" z="103.35515" h="79"/>
 			<spot x="216.51051" y="1540.7489" z="100.5" h="55"/>
@@ -709,7 +709,7 @@
 			<spot x="243.60327" y="1311.1133" z="104.60037" h="50"/>
 		</spawn>
 		<!-- Fearless Fungie ||| Fungy_7_n -->
-		<spawn npc_id="210192" respawn_time="295">
+		<spawn npc_id="210192" respawn_time="295" random_walk="10">
 			<spot x="283.85938" y="1670.2649" z="106.66588" h="71"/>
 			<spot x="269.55008" y="1661.1304" z="105.02563" h="15"/>
 			<spot x="261.61795" y="1650.6317" z="100.83703" h="2"/>
@@ -727,7 +727,7 @@
 			<spot x="260.24155" y="1292.8173" z="104.77598" h="21"/>
 		</spawn>
 		<!-- Grove Abex ||| Fethlot_5_n -->
-		<spawn npc_id="210195" respawn_time="295">
+		<spawn npc_id="210195" respawn_time="295" random_walk="10">
 			<spot x="541.87634" y="1396.4337" z="115.380035" h="61"/>
 			<spot x="576.67487" y="1409.6813" z="114.66638" h="95"/>
 			<spot x="578.0866" y="1429.5695" z="112.67457" h="119"/>
@@ -762,7 +762,7 @@
 			<spot x="674.56244" y="1478.7893" z="120.58448" h="35"/>
 		</spawn>
 		<!-- Grove Abex ||| Fethlot_6_n -->
-		<spawn npc_id="210196" respawn_time="295">
+		<spawn npc_id="210196" respawn_time="295" random_walk="10">
 			<spot x="674.05804" y="1537.6553" z="124.72482" h="62"/>
 			<spot x="675.15533" y="1567.9866" z="125.98143" h="69"/>
 			<spot x="674.6999" y="1631.5983" z="124.54143" h="8"/>
@@ -774,7 +774,7 @@
 			<spot x="709.74634" y="1566.8983" z="128.76103" h="17"/>
 		</spawn>
 		<!-- Pinkbeak Airon ||| Hiiv_3_n -->
-		<spawn npc_id="210205" respawn_time="295">
+		<spawn npc_id="210205" respawn_time="295" random_walk="10">
 			<spot x="727.3344" y="1077.5225" z="99.375" h="50"/>
 			<spot x="678.1224" y="1107.6881" z="99.54639" h="107"/>
 			<spot x="688.7629" y="1091.9817" z="99.38214" h="39"/>
@@ -799,7 +799,7 @@
 			<spot x="683.2843" y="1131.0822" z="101.59973" h="5"/>
 		</spawn>
 		<!-- Brownbristle Brax ||| Brax_3_n -->
-		<spawn npc_id="210259" respawn_time="295">
+		<spawn npc_id="210259" respawn_time="295" random_walk="10">
 			<spot x="690.66" y="1132.272" z="101.57921" h="45"/>
 			<spot x="699.14764" y="1104.7028" z="100.09693" h="44"/>
 			<spot x="710.4732" y="1091.092" z="99.418" h="89"/>
@@ -816,7 +816,7 @@
 			<spot x="709.40356" y="1027.3931" z="100.05187" h="4"/>
 		</spawn>
 		<!-- Brownbristle Brax ||| Brax_4_n -->
-		<spawn npc_id="210260" respawn_time="295">
+		<spawn npc_id="210260" respawn_time="295" random_walk="10">
 			<spot x="630.65674" y="1117.4946" z="99.40568" h="40"/>
 			<spot x="621.03" y="1118.4447" z="99.5699" h="61"/>
 			<spot x="613.57166" y="1124.8774" z="100.01245" h="8"/>
@@ -829,7 +829,7 @@
 			<spot x="559.1959" y="1072.2031" z="99.78597" h="2"/>
 		</spawn>
 		<!-- Everglade Sylphen ||| Muta_5_n -->
-		<spawn npc_id="210261" respawn_time="295">
+		<spawn npc_id="210261" respawn_time="295" random_walk="10">
 			<spot x="634.0986" y="1234.6547" z="109.54495" h="30"/>
 			<spot x="624.7275" y="1252.4456" z="110.5" h="72"/>
 			<spot x="607.8853" y="1257.7319" z="110.84392" h="57"/>
@@ -859,7 +859,7 @@
 			<spot x="636.0236" y="1547.745" z="119.505905" h="19"/>
 		</spawn>
 		<!-- Shortbristle Bellepig ||| Mepiguss_5_n -->
-		<spawn npc_id="210262" respawn_time="295">
+		<spawn npc_id="210262" respawn_time="295" random_walk="10">
 			<spot x="502.2465" y="1457.5322" z="103.277664" h="92"/>
 			<spot x="490.2119" y="1462.0192" z="104.9327" h="92"/>
 			<spot x="509.7821" y="1467.4281" z="104.11553" h="52"/>
@@ -885,7 +885,7 @@
 			<spot x="281.49878" y="1456.0481" z="99.253006" h="29"/>
 		</spawn>
 		<!-- Methu ||| Methu_1_n -->
-		<spawn npc_id="210336" respawn_time="295">
+		<spawn npc_id="210336" respawn_time="295" random_walk="10">
 			<spot x="968.55927" y="1079.2229" z="110.54324" h="16"/>
 			<spot x="970.08813" y="1086.4012" z="110.60679" h="9"/>
 			<spot x="972.7309" y="1091.9683" z="110.90232" h="1"/>
@@ -906,7 +906,7 @@
 			<spot x="631.7641" y="921.0126" z="103.01474" h="105"/>
 		</spawn>
 		<!-- Elroco ||| Minx_1_n -->
-		<spawn npc_id="210338" respawn_time="295">
+		<spawn npc_id="210338" respawn_time="295" random_walk="10">
 			<spot x="570.99493" y="1304.1753" z="114.76222" h="55"/>
 			<spot x="572.4951" y="1316.0413" z="115.659744" h="85"/>
 			<spot x="573.084" y="1331.4355" z="116.13362" h="70"/>
@@ -936,7 +936,7 @@
 			<spot x="685.1668" y="1574.087" z="125.378975" h="72"/>
 		</spawn>
 		<!-- Qooqoo ||| Qooqoo_1_n -->
-		<spawn npc_id="210340" respawn_time="295">
+		<spawn npc_id="210340" respawn_time="295" random_walk="10">
 			<spot x="853.6021" y="1226.802" z="118.625" h="95"/>
 			<spot x="847.54425" y="1226.3401" z="118.625" h="24"/>
 			<spot x="850.0164" y="1241.052" z="118.81677" h="34"/>
@@ -945,7 +945,7 @@
 			<spot x="845.13135" y="1248.9894" z="119.00133" h="75"/>
 		</spawn>
 		<!-- Longnosed Snuffler ||| Merdion_2_n -->
-		<spawn npc_id="210341" respawn_time="295">
+		<spawn npc_id="210341" respawn_time="295" random_walk="10">
 			<spot x="1079.5133" y="1091.7167" z="119.97458" h="100"/>
 			<spot x="1080.7595" y="1095.9115" z="120.495285" h="98"/>
 			<spot x="1055.0281" y="978.69244" z="131.6857" h="57"/>
@@ -976,7 +976,7 @@
 			<spot x="961.5084" y="1217.3188" z="102.3554" h="96"/>
 		</spawn>
 		<!-- Juvenile Sparkie ||| Spaky_2_n -->
-		<spawn npc_id="210663" respawn_time="295">
+		<spawn npc_id="210663" respawn_time="295" random_walk="10">
 			<spot x="1010.8901" y="1019.8047" z="125.44945" h="104"/>
 			<spot x="1013.23645" y="1040.2296" z="124.39952" h="53"/>
 			<spot x="1042.2559" y="1061.6339" z="118.43351" h="82"/>
@@ -1003,7 +1003,7 @@
 			<spot x="859.5311" y="1076.5736" z="108.85663" h="44"/>
 		</spawn>
 		<!-- Digging Kerub ||| DigCherubimL_2_n -->
-		<spawn npc_id="210664" respawn_time="295">
+		<spawn npc_id="210664" respawn_time="295" random_walk="10">
 			<spot x="942.92346" y="1071.3116" z="107.45369" h="41"/>
 			<spot x="946.90375" y="1080.1487" z="107.504196" h="65"/>
 			<spot x="938.46344" y="1074.662" z="107.33275" h="23"/>
@@ -1021,7 +1021,7 @@
 			<spot x="1021.11017" y="1171.3698" z="113.824905" h="79"/>
 		</spawn>
 		<!-- Smallfoot Kerub ||| AtkD1CherubimL_2_n -->
-		<spawn npc_id="210665" respawn_time="295">
+		<spawn npc_id="210665" respawn_time="295" random_walk="10">
 			<spot x="976.281" y="1095.5502" z="111.09154" h="6"/>
 			<spot x="989.7442" y="1107.7366" z="109.65745" h="111"/>
 			<spot x="1053.1383" y="1122.1187" z="119.45356" h="117"/>
@@ -1029,7 +1029,7 @@
 			<spot x="957.4139" y="1180.4418" z="108.48304" h="86"/>
 		</spawn>
 		<!-- Wandering Kerub ||| AtkTwCherubimL_3_n -->
-		<spawn npc_id="210666" respawn_time="295">
+		<spawn npc_id="210666" respawn_time="295" random_walk="10">
 			<spot x="874.9835" y="1157.5426" z="103.67653" h="43"/>
 			<spot x="876.44116" y="1145.3336" z="103.84375" h="30"/>
 			<spot x="772.677" y="1176.9199" z="105.625" h="10"/>
@@ -1037,7 +1037,7 @@
 			<spot x="740.0905" y="1175.1973" z="106.67229" h="119"/>
 		</spawn>
 		<!-- Porgus ||| Porguss_1_n -->
-		<spawn npc_id="210667" respawn_time="295">
+		<spawn npc_id="210667" respawn_time="295" random_walk="10">
 			<spot x="1046.4114" y="1131.1346" z="119.820915" h="23"/>
 			<spot x="1056.7981" y="1124.0668" z="119.679054" h="6"/>
 			<spot x="1083.6852" y="1112.827" z="121.827515" h="55"/>
@@ -1050,7 +1050,7 @@
 			<spot x="670.8196" y="936.4195" z="104.42622" h="35"/>
 		</spawn>
 		<!-- Pinkbeak Airon ||| Hiiv_4_n -->
-		<spawn npc_id="210668" respawn_time="295">
+		<spawn npc_id="210668" respawn_time="295" random_walk="10">
 			<spot x="657.2441" y="1092.0898" z="99.375" h="43"/>
 			<spot x="613.16144" y="1098.392" z="99.375" h="8"/>
 			<spot x="621.884" y="1075.0732" z="99.375" h="118"/>
@@ -1065,13 +1065,13 @@
 			<spot x="622.4482" y="949.3679" z="99.375" h="66"/>
 		</spawn>
 		<!-- Wandering Kerub ||| AtkD1CherubimL_3_n -->
-		<spawn npc_id="210669" respawn_time="295">
+		<spawn npc_id="210669" respawn_time="295" random_walk="10">
 			<spot x="683.5104" y="936.4348" z="104.597824" h="94"/>
 			<spot x="672.9794" y="934.1429" z="104.5" h="46"/>
 			<spot x="633.8386" y="910.66486" z="102.33984" h="49"/>
 		</spawn>
 		<!-- Smallhorn Kerub ||| WCherubimL_3_n -->
-		<spawn npc_id="210670" respawn_time="295">
+		<spawn npc_id="210670" respawn_time="295" random_walk="10">
 			<spot x="772.0041" y="1248.3157" z="113.955925" h="31"/>
 			<spot x="731.828" y="1257.5647" z="112.38575" h="5"/>
 			<spot x="723.5922" y="1208.2775" z="110.79854" h="92"/>
@@ -1103,7 +1103,7 @@
 			<spot x="628.16406" y="1194.998" z="108.86499" h="57"/>
 		</spawn>
 		<!-- Bigfoot Kerubar ||| WCherubimL_4_n -->
-		<spawn npc_id="210671" respawn_time="295">
+		<spawn npc_id="210671" respawn_time="295" random_walk="10">
 			<spot x="637.56714" y="1197.0192" z="108.02098" h="51"/>
 			<spot x="669.19867" y="950.77045" z="103.67659" h="24"/>
 			<spot x="674.2709" y="909.64294" z="105.4741" h="3"/>
@@ -1127,7 +1127,7 @@
 			<spot x="480.32556" y="1079.2031" z="117.87378" h="0"/>
 		</spawn>
 		<!-- Brownbristle Braxie ||| BraxBaby_3_n -->
-		<spawn npc_id="210672" respawn_time="295">
+		<spawn npc_id="210672" respawn_time="295" random_walk="10">
 			<spot x="710.9423" y="1104.147" z="101.11741" h="107"/>
 			<spot x="692.76996" y="1107.3492" z="99.42313" h="64"/>
 			<spot x="677.0071" y="1135.3197" z="100.85604" h="109"/>
@@ -1139,7 +1139,7 @@
 			<spot x="648.5765" y="892.60046" z="103.58747" h="71"/>
 		</spawn>
 		<!-- Everglade Sylphen ||| Muta_6_n -->
-		<spawn npc_id="210674" respawn_time="295">
+		<spawn npc_id="210674" respawn_time="295" random_walk="10">
 			<spot x="580.314" y="1506.5446" z="115.466415" h="23"/>
 			<spot x="562.9667" y="1522.4875" z="110.40236" h="25"/>
 			<spot x="581.05304" y="1524.4148" z="112.407486" h="119"/>
@@ -1154,7 +1154,7 @@
 			<spot x="650.3633" y="1593.956" z="125.8014" h="25"/>
 		</spawn>
 		<!-- Shortbristle Bellepig ||| Mepiguss_6_n -->
-		<spawn npc_id="210675" respawn_time="295">
+		<spawn npc_id="210675" respawn_time="295" random_walk="10">
 			<spot x="514.2045" y="1488.2098" z="106.37333" h="21"/>
 			<spot x="486.45093" y="1494.5386" z="106.15318" h="112"/>
 			<spot x="509.06226" y="1506.8352" z="105.0728" h="51"/>
@@ -1171,7 +1171,7 @@
 			<spot x="548.1944" y="1598.6707" z="113.77172" h="69"/>
 		</spawn>
 		<!-- Adult Sparkie ||| spaky_5_n -->
-		<spawn npc_id="210676" respawn_time="295">
+		<spawn npc_id="210676" respawn_time="295" random_walk="10">
 			<spot x="592.93915" y="1326.1504" z="115.5188" h="97"/>
 			<spot x="591.25" y="1332.75" z="116.046875" h="89"/>
 			<spot x="516.1128" y="1383.8909" z="113.68691" h="13"/>
@@ -1189,7 +1189,7 @@
 			<spot x="658.558" y="1517.3372" z="124.10534" h="80"/>
 		</spawn>
 		<!-- Dukaki Woodcutter ||| DBrownieMWd_6_An -->
-		<spawn npc_id="210677" respawn_time="295">
+		<spawn npc_id="210677" respawn_time="295" random_walk="10">
 			<spot x="563.3124" y="1716.483" z="126.256134" h="15"/>
 			<spot x="539.9983" y="1760.4735" z="125.97003" h="77"/>
 			<spot x="504.64374" y="1794.7858" z="127.857254" h="51"/>
@@ -1198,14 +1198,14 @@
 			<spot x="556.3695" y="1797.0134" z="134.35971" h="27"/>
 		</spawn>
 		<!-- Dukaki Woodcutter ||| DBrownieMWd_7_An -->
-		<spawn npc_id="210678" respawn_time="295">
+		<spawn npc_id="210678" respawn_time="295" random_walk="10">
 			<spot x="511.16302" y="1787.9746" z="128.10211" h="36"/>
 			<spot x="493.89783" y="1817.367" z="130.48792" h="19"/>
 			<spot x="532.1059" y="1856.9048" z="136.82507" h="2"/>
 			<spot x="531.91034" y="1896.4502" z="138.90747" h="25"/>
 		</spawn>
 		<!-- Dukaki Lumberjack ||| DBrownieWWd_6_An -->
-		<spawn npc_id="210679" respawn_time="295">
+		<spawn npc_id="210679" respawn_time="295" random_walk="10">
 			<spot x="552.0203" y="1702.9547" z="125.5584" h="94"/>
 			<spot x="546.5007" y="1703.6953" z="125.73096" h="95"/>
 			<spot x="501.7132" y="1780.5366" z="128.23207" h="66"/>
@@ -1240,13 +1240,13 @@
 			<spot x="300.39447" y="2062.651" z="176.89565" h="0"/>
 		</spawn>
 		<!-- Dukaki Thug ||| DBrownieMWa_9_An -->
-		<spawn npc_id="210686" respawn_time="295">
+		<spawn npc_id="210686" respawn_time="295" random_walk="10">
 			<spot x="251.9392" y="1042.4711" z="121.630424" h="30"/>
 			<spot x="228.84776" y="1011.3798" z="121.28368" h="23"/>
 			<spot x="245.8011" y="1013.8466" z="120.6787" h="70"/>
 		</spawn>
 		<!-- Dukaki Patrol ||| DBrownieWWa_9_An -->
-		<spawn npc_id="210687" respawn_time="295">
+		<spawn npc_id="210687" respawn_time="295" random_walk="10">
 			<spot x="214.9084" y="1099.1984" z="126.6689" h="78"/>
 			<spot x="196.16281" y="1098.2742" z="125.75624" h="60"/>
 			<spot x="204.512" y="1087.3635" z="110.97439" h="11"/>
@@ -1278,7 +1278,7 @@
 			<spot x="241.06926" y="1746.9026" z="132.06345" h="106"/>
 		</spawn>
 		<!-- Kerub Fighter ||| DigCherubimL_2_n_2 -->
-		<spawn npc_id="210705" respawn_time="295">
+		<spawn npc_id="210705" respawn_time="295" random_walk="10">
 			<spot x="1028.9241" y="969.0054" z="131.0" h="30"/>
 			<spot x="1130.2894" y="981.3836" z="132.96706" h="58"/>
 			<spot x="950.58" y="1097.18" z="108.2146" h="9"/>
