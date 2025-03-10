@@ -157,8 +157,6 @@ public class WalkManager {
 
 		npcAI.ignorePath = false;
 
-		//log.info("[WalkManager] startRandomWalking.");
-
 		if (AIConfig.RANDOMWALK_THRESHOLD) {
 			boolean randomWalk = false;
 			// This piece of code makes sure a player is in range.
@@ -168,14 +166,13 @@ public class WalkManager {
 				float dist = (float) MathUtil.getDistance(owner.getX(), owner.getY(), owner.getZ(),
 					player.getX(), player.getY(), player.getZ());
 				if (dist < AIConfig.RANDOMWALK_PLAYERMAXDIST) {
-					//log.info("randomWalk = true");
 					randomWalk = true;
 					break;
 				}
 			}
 
 			if (!randomWalk) {
-				//log.info("[WalkManager] randomWalk abort.");
+				npcAI.setSubStateIfNot(AISubState.WALK_RANDOM);
 			 	return false;
 		 	}
 		}
