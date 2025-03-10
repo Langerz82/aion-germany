@@ -55,7 +55,7 @@ public class WalkManager {
 	 * @param npcAI
 	 */
 	public static boolean startWalking(NpcAI2 npcAI) {
-		log.info("[WalkManager] startWalking");
+		//log.info("[WalkManager] startWalking");
 		npcAI.setStateIfNot(AIState.WALKING);
 		Npc owner = npcAI.getOwner();
 		WalkerTemplate template = DataManager.WALKER_DATA.getWalkerTemplate(owner.getSpawn().getWalkerId());
@@ -64,7 +64,7 @@ public class WalkManager {
 			startRouteWalking(npcAI, owner, template);
 		}
 		else {
-			log.info("[WalkManager] startRandomWalking");
+			//log.info("[WalkManager] startRandomWalking");
 			return startRandomWalking(npcAI, owner);
 		}
 		return true;
@@ -157,30 +157,6 @@ public class WalkManager {
 		if (!AIConfig.ACTIVE_NPC_MOVEMENT) {
 			return false;
 		}
-
-		//log.info("[WalkManager] startRandomWalking.");
-		// TODO - This code makes Creatures move too fast, when out of distance presumably.
-		/*if (AIConfig.RANDOMWALK_THRESHOLD) {
-			boolean randomWalk = false;
-			// This piece of code makes sure a player is in range.
-			for (Player player : World.getInstance().getAllPlayers()) {
-				if(!player.isOnline())
-					continue;
-				float dist = (float) MathUtil.getDistance(owner.getX(), owner.getY(), owner.getZ(),
-					player.getX(), player.getY(), player.getZ());
-				if (dist < AIConfig.RANDOMWALK_PLAYERMAXDIST) {
-					//log.info("randomWalk = true");
-					randomWalk = true;
-					break;
-				}
-			}
-
-			if (!randomWalk) {
-				//log.info("[WalkManager] randomWalk abort.");
-				npcAI.setSubStateIfNot(AISubState.WALK_RANDOM);
-			 	return false;
-		 	}
-		}*/
 
 		int randomWalkNr = owner.getSpawn().getRandomWalk();
 		if (randomWalkNr == 0) {
@@ -369,10 +345,8 @@ public class WalkManager {
 	private static void chooseNextRandomPoint(final NpcAI2 npcAI) {
 		final Npc owner = npcAI.getOwner();
 
-		if (npcAI.isPathWalking) {
-			owner.getMoveController().setCurrentRoute(null);
-			owner.getMoveController().abortMove();
-		}
+		owner.getMoveController().setCurrentRoute(null);
+		owner.getMoveController().abortMove();
 
 		int randomWalkNr = owner.getSpawn().getRandomWalk();
 		final int walkRange = Math.max(randomWalkNr, WALK_RANDOM_RANGE);
@@ -383,6 +357,9 @@ public class WalkManager {
 
 			@Override
 			public void run() {
+				owner.getMoveController().setCurrentRoute(null);
+				owner.getMoveController().abortMove();
+
 				if (npcAI.isInState(AIState.WALKING)) {
 					if (distToSpawn > walkRange) {
 						returnToSpawn(npcAI);
