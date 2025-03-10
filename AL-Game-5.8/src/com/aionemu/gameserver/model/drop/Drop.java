@@ -20,6 +20,9 @@ import java.nio.ByteBuffer;
 import java.util.Collection;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.Race;
@@ -30,6 +33,7 @@ import com.aionemu.gameserver.model.templates.item.ItemTemplate;
  * @author MrPoke
  */
 public class Drop implements DropCalculator {
+	private static final Logger log = LoggerFactory.getLogger(Drop.class);
 
 	private int itemId;
 	private int minAmount;
@@ -109,7 +113,10 @@ public class Drop implements DropCalculator {
 		if (!noReduce) {
 			percent *= dropModifier;
 		}
-		if (Rnd.get() * 100 < percent) {
+
+		float rand = Rnd.get() * 100;
+		//log.info("[Drop] rand: "+rand+" < percent: "+percent);
+		if (rand < percent) {
 			if (eachMember && groupMembers != null && !groupMembers.isEmpty()) {
 				for (Player player : groupMembers) {
 					DropItem dropitem = new DropItem(this);

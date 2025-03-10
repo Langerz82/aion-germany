@@ -436,16 +436,6 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 			log.info("[NpcMoveController] currentPoint: "+currentPoint);
 			log.info("[NpcMoveController] oldPoint: "+oldPoint);
 		}
-
-		NpcAI2 npcAI = (NpcAI2) owner.getAi2();
-		if (npcAI != null && npcAI.isPathWalking && currentPoint == (currentRoute.size()-1)) {
-			//WalkManager.stopWalking((NpcAI2) owner.getAi2());
-			log.info("[NpcMoveController] currentRoute set to null.");
-			npcAI.isPathWalking = false;
-			setCurrentRoute(null);
-			WalkManager.startWalking(npcAI);
-			return;
-		}
 	}
 
 	public int getWalkPause() {

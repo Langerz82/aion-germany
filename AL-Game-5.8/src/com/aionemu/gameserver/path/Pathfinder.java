@@ -114,7 +114,8 @@ public class Pathfinder {
             //log.info("[pathfinder] end: "+end.toString());
             float dt = current.diff(end);
             //log.info("[pathfinder] dt: "+dt);
-            if(current.closeto(end, this.gridStepping * 2)) {
+            //current.z = this.owner.getMoveController().getZ(this.owner, current.x, current.y, this.owner.getZ());
+            if(current.closeto(end, this.gridStepping * 2) /*&& !current.isBlocked(end, this.zTolerance)*/) {
                 break;
             }
 

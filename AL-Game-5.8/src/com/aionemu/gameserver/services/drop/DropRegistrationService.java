@@ -23,6 +23,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.ai2.event.AIEventType;
 import com.aionemu.gameserver.configs.main.DropConfig;
@@ -57,6 +60,7 @@ import javolution.util.FastMap;
  * @author xTz
  */
 public class DropRegistrationService {
+	private static final Logger log = LoggerFactory.getLogger(DropRegistrationService.class);
 
 	private Map<Integer, Set<DropItem>> currentDropMap = new FastMap<Integer, Set<DropItem>>().shared();
 	private Map<Integer, DropNpc> dropRegistrationMap = new FastMap<Integer, DropNpc>().shared();
@@ -183,6 +187,9 @@ public class DropRegistrationService {
 		// can be exploited on duel with Spiritmaster Erosion skill
 		boostDropRate += genesis.getGameStats().getStat(StatEnum.BOOST_DROP_RATE, 100).getCurrent() / 100f - 1;
 
+		//log.info("[DropService] droprate:"+genesis.getRates().getDropRate());
+		//log.info("[DropService] boostDropRate:"+boostDropRate);
+		//log.info("[DropService] dropChance:"+dropChance);
 		float dropRate = (genesis.getRates().getDropRate() * boostDropRate * dropChance / 100F);
 
 		if (npcDrop != null) {

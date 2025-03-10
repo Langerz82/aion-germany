@@ -35,7 +35,7 @@ public class XmlDrop {
 	protected int minAmount;
 	@XmlAttribute(name = "max_amount", required = true)
 	protected int maxAmount;
-	@XmlAttribute(required = true)
+	@XmlAttribute(name = "chance", required = true)
 	protected float chance;
 	@XmlAttribute(name = "no_reduce")
 	protected boolean noReduce = false;

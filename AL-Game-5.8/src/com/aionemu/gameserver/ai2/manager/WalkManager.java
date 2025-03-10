@@ -55,7 +55,7 @@ public class WalkManager {
 	 * @param npcAI
 	 */
 	public static boolean startWalking(NpcAI2 npcAI) {
-		log.info("[WalkManager] startWalking");
+		//log.info("[WalkManager] startWalking");
 		npcAI.setStateIfNot(AIState.WALKING);
 		Npc owner = npcAI.getOwner();
 		WalkerTemplate template = DataManager.WALKER_DATA.getWalkerTemplate(owner.getSpawn().getWalkerId());
@@ -64,7 +64,7 @@ public class WalkManager {
 			startRouteWalking(npcAI, owner, template);
 		}
 		else {
-			log.info("[WalkManager] startRandomWalking");
+			//log.info("[WalkManager] startRandomWalking");
 			return startRandomWalking(npcAI, owner);
 		}
 		return true;
@@ -89,11 +89,6 @@ public class WalkManager {
 			return false;
 		}
 
-		if (npcAI.ignorePath) {
-			npcAI.ignorePath = false;
-			return false;
-		}
-
 		if (startPathWalking(npcAI, npcAI.getOwner(), px, py, pz)) {
 			return true;
 		}
@@ -109,6 +104,8 @@ public class WalkManager {
 
 		//if (owner.getMoveController().hasCurrentRoute())
 			//return false;
+		if (npcAI.ignorePath)
+			return false;
 
 		pz = owner.getMoveController().getZ(owner, px, py, pz);
 		final Cell cellOwner = new Cell(owner.getX(), owner.getY(), owner.getZ());
@@ -144,6 +141,7 @@ public class WalkManager {
 		owner.getMoveController().moveToNextPoint();
 		npcAI.isPathWalking = true;
 		npcAI.setStateIfNot(AIState.WALKING);
+		npcAI.prevSubState = npcAI.getSubState();
 		npcAI.setSubStateIfNot(AISubState.WALK_PATH);
 		return true;
 	}
@@ -157,10 +155,12 @@ public class WalkManager {
 			return false;
 		}
 
-		log.info("[WalkManager] startRandomWalking.");
+		npcAI.ignorePath = false;
+
+		//log.info("[WalkManager] startRandomWalking.");
 
 		if (AIConfig.RANDOMWALK_THRESHOLD) {
-			npcAI.randomWalk = false;
+			boolean randomWalk = false;
 			// This piece of code makes sure a player is in range.
 			for (Player player : World.getInstance().getAllPlayers()) {
 				if(!player.isOnline())
@@ -169,14 +169,13 @@ public class WalkManager {
 					player.getX(), player.getY(), player.getZ());
 				if (dist < AIConfig.RANDOMWALK_PLAYERMAXDIST) {
 					//log.info("randomWalk = true");
-					npcAI.randomWalk = true;
+					randomWalk = true;
 					break;
 				}
 			}
 
-			if (!npcAI.randomWalk) {
-				npcAI.randomWalk = false;
-				log.info("[WalkManager] randomWalk abort.");
+			if (!randomWalk) {
+				//log.info("[WalkManager] randomWalk abort.");
 			 	return false;
 		 	}
 		}
@@ -299,6 +298,9 @@ public class WalkManager {
 	 */
 	public static void targetReached(final NpcAI2 npcAI) {
 		if (npcAI.isInState(AIState.WALKING)) {
+			if (npcAI.isPathWalking)
+				npcAI.setSubStateIfNot(npcAI.prevSubState);
+
 			switch (npcAI.getSubState()) {
 				case WALK_PATH:
 					npcAI.getOwner().updateKnownlist();
@@ -354,7 +356,7 @@ public class WalkManager {
 	 * @param npcAI
 	 */
 	private static void returnToSpawn(NpcAI2 npcAI) {
-		log.info("[WalkManager] returnToSpawn");
+		//log.info("[WalkManager] returnToSpawn");
 		final Npc owner = npcAI.getOwner();
 		npcAI.ignorePath = true;
 		owner.getMoveController().moveToPoint(owner.getSpawn().getX(), owner.getSpawn().getY(), owner.getSpawn().getZ());
@@ -364,8 +366,14 @@ public class WalkManager {
 	 * @param npcAI
 	 */
 	private static void chooseNextRandomPoint(final NpcAI2 npcAI) {
+
 		final Npc owner = npcAI.getOwner();
-		owner.getMoveController().abortMove();
+
+		if (npcAI.isPathWalking) {
+			owner.getMoveController().setCurrentRoute(null);
+			owner.getMoveController().abortMove();
+		}
+
 		int randomWalkNr = owner.getSpawn().getRandomWalk();
 		final int walkRange = Math.max(randomWalkNr, WALK_RANDOM_RANGE);
 
@@ -393,6 +401,12 @@ public class WalkManager {
 									return;
 							}
 
+							cxy = Math.abs(owner.getSpawn().getZ() - loc.z);
+							if (cxy > dxy) {
+									returnToSpawn(npcAI);
+									return;
+							}
+
 							owner.getMoveController().moveToPoint(loc.x, loc.y, loc.z);
 						}
 						else {
@@ -413,10 +427,6 @@ public class WalkManager {
 		npcAI.setStateIfNot(AIState.IDLE);
 		npcAI.setSubStateIfNot(AISubState.NONE);
 		EmoteManager.emoteStopWalking(npcAI.getOwner());
-		/*if (npcAI.isPathWalking) {
-			//npcAI.getOwner().getMoveController().setCurrentRoute(null);
-			npcAI.isPathWalking = false;
-		}*/
 	}
 
 	/**
