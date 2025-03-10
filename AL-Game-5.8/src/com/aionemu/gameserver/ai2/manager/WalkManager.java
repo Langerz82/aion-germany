@@ -158,9 +158,9 @@ public class WalkManager {
 			return false;
 		}
 
-		log.info("[WalkManager] startRandomWalking.");
-
-		if (AIConfig.RANDOMWALK_THRESHOLD) {
+		//log.info("[WalkManager] startRandomWalking.");
+		// TODO - This code makes Creatures move too fast, when out of distance presumably.
+		/*if (AIConfig.RANDOMWALK_THRESHOLD) {
 			boolean randomWalk = false;
 			// This piece of code makes sure a player is in range.
 			for (Player player : World.getInstance().getAllPlayers()) {
@@ -180,7 +180,7 @@ public class WalkManager {
 				npcAI.setSubStateIfNot(AISubState.WALK_RANDOM);
 			 	return false;
 		 	}
-		}
+		}*/
 
 		int randomWalkNr = owner.getSpawn().getRandomWalk();
 		if (randomWalkNr == 0) {
@@ -357,7 +357,7 @@ public class WalkManager {
 	 * @param npcAI
 	 */
 	private static void returnToSpawn(NpcAI2 npcAI) {
-		log.info("[WalkManager] returnToSpawn");
+		//log.info("[WalkManager] returnToSpawn");
 		final Npc owner = npcAI.getOwner();
 		npcAI.ignorePath = true;
 		owner.getMoveController().moveToPoint(owner.getSpawn().getX(), owner.getSpawn().getY(), owner.getSpawn().getZ());
@@ -368,7 +368,12 @@ public class WalkManager {
 	 */
 	private static void chooseNextRandomPoint(final NpcAI2 npcAI) {
 		final Npc owner = npcAI.getOwner();
-		owner.getMoveController().abortMove();
+
+		if (npcAI.isPathWalking) {
+			owner.getMoveController().setCurrentRoute(null);
+			owner.getMoveController().abortMove();
+		}
+
 		int randomWalkNr = owner.getSpawn().getRandomWalk();
 		final int walkRange = Math.max(randomWalkNr, WALK_RANDOM_RANGE);
 
