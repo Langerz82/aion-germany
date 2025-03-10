@@ -191,4 +191,5 @@ public class NpcAI2 extends AITemplate {
 
 	public boolean ignorePath;
 	public boolean isPathWalking;
+	public AISubState prevSubState;
 }

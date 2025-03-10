@@ -143,6 +143,7 @@ public class WalkManager {
 		EmoteManager.emoteStartWalking(npcAI.getOwner());
 		owner.getMoveController().moveToNextPoint();
 		npcAI.isPathWalking = true;
+		npcAI.prevSubState = npcAI.getSubState();
 		npcAI.setStateIfNot(AIState.WALKING);
 		npcAI.setSubStateIfNot(AISubState.WALK_PATH);
 		return true;
@@ -299,6 +300,8 @@ public class WalkManager {
 	 */
 	public static void targetReached(final NpcAI2 npcAI) {
 		if (npcAI.isInState(AIState.WALKING)) {
+			if (npcAI.isPathWalking)
+				npcAI.setSubStateIfNot(npcAI.prevSubState);
 			switch (npcAI.getSubState()) {
 				case WALK_PATH:
 					npcAI.getOwner().updateKnownlist();
