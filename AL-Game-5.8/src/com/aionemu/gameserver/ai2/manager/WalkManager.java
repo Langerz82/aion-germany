@@ -160,7 +160,7 @@ public class WalkManager {
 		log.info("[WalkManager] startRandomWalking.");
 
 		if (AIConfig.RANDOMWALK_THRESHOLD) {
-			npcAI.randomWalk = false;
+			boolean randomWalk = false;
 			// This piece of code makes sure a player is in range.
 			for (Player player : World.getInstance().getAllPlayers()) {
 				if(!player.isOnline())
@@ -169,14 +169,14 @@ public class WalkManager {
 					player.getX(), player.getY(), player.getZ());
 				if (dist < AIConfig.RANDOMWALK_PLAYERMAXDIST) {
 					//log.info("randomWalk = true");
-					npcAI.randomWalk = true;
+					randomWalk = true;
 					break;
 				}
 			}
 
-			if (!npcAI.randomWalk) {
-				npcAI.randomWalk = false;
-				log.info("[WalkManager] randomWalk abort.");
+			if (!randomWalk) {
+				//log.info("[WalkManager] randomWalk abort.");
+				npcAI.setSubStateIfNot(AISubState.WALK_RANDOM);
 			 	return false;
 		 	}
 		}
