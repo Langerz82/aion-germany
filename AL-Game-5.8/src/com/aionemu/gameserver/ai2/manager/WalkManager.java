@@ -162,6 +162,7 @@ public class WalkManager {
 		if (randomWalkNr == 0) {
 			return false;
 		}
+
 		if (npcAI.setSubStateIfNot(AISubState.WALK_RANDOM)) {
 			EmoteManager.emoteStartWalking(npcAI.getOwner());
 			chooseNextRandomPoint(npcAI);
@@ -301,6 +302,7 @@ public class WalkManager {
 				default:
 					break;
 			}
+			npcAI.isPathWalking = false;
 		}
 	}
 
@@ -348,10 +350,8 @@ public class WalkManager {
 		owner.getMoveController().setCurrentRoute(null);
 		owner.getMoveController().abortMove();
 
-		int randomWalkNr = owner.getSpawn().getRandomWalk();
+		final int randomWalkNr = owner.getSpawn().getRandomWalk();
 		final int walkRange = Math.max(randomWalkNr, WALK_RANDOM_RANGE);
-
-		final float distToSpawn = (float) owner.getDistanceToSpawnLocation();
 
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
 
@@ -360,7 +360,24 @@ public class WalkManager {
 				owner.getMoveController().setCurrentRoute(null);
 				owner.getMoveController().abortMove();
 
+				//log.info("[WalkManager] startRandomWalking.");
+				// TODO - This code makes Creatures move too fast, when out of distance presumably.
+				if (AIConfig.RANDOMWALK_THRESHOLD) {
+					// This piece of code makes sure a player is in range.
+					for (Player player : World.getInstance().getAllPlayers()) {
+						if(!player.isOnline())
+							continue;
+						float dist = (float) MathUtil.getDistance(owner.getX(), owner.getY(), owner.getZ(),
+							player.getX(), player.getY(), player.getZ());
+						if (dist > AIConfig.RANDOMWALK_PLAYERMAXDIST) {
+							chooseNextRandomPoint(npcAI);
+							return;
+						}
+					}
+				}
+
 				if (npcAI.isInState(AIState.WALKING)) {
+					float distToSpawn = (float) owner.getDistanceToSpawnLocation();
 					if (distToSpawn > walkRange) {
 						returnToSpawn(npcAI);
 					}
