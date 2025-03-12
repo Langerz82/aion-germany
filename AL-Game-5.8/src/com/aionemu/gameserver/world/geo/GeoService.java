@@ -128,6 +128,19 @@ public class GeoService {
 		return geoData.getMap(object.getWorldId()).canSee(object.getX(), object.getY(), object.getZ() + object.getObjectTemplate().getBoundRadius().getUpper() / 2, target.getX(), target.getY(), target.getZ() + target.getObjectTemplate().getBoundRadius().getUpper() / 2, limit, object.getInstanceId());
 	}
 
+	public boolean canSee(VisibleObject object, float x, float y, float z) {
+		if (!GeoDataConfig.CANSEE_ENABLE) {
+			return true;
+		}
+		float limit = (float) MathUtil.getDistance(object.getX(), object.getY(), object.getZ(), x, y, z);
+		if (limit <= 0) {
+			return true;
+		}
+		float upperHalf = object.getObjectTemplate().getBoundRadius().getUpper() / 2;
+		return geoData.getMap(object.getWorldId()).canSee(object.getX(), object.getY(),
+			object.getZ() + upperHalf, x, y, z + upperHalf, limit, object.getInstanceId());
+	}
+
 	public boolean canSee(int worldId, float x, float y, float z, float x1, float y1, float z1, float limit, int instanceId) {
 		return geoData.getMap(worldId).canSee(x, y, z, x1, y1, z1, limit, instanceId);
 	}

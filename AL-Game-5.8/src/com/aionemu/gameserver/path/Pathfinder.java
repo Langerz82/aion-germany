@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.controllers.movement.NpcMoveController;
 
+// Adapted from https://github.com/hax0r31337/Astar3d.
+
 public class Pathfinder {
     private static final Logger log = LoggerFactory.getLogger(Pathfinder.class);
 
@@ -38,25 +40,29 @@ public class Pathfinder {
             //new Cell(0, 0, -1)
     };
 
+    public static Cell[] neighbours;
+    public static float gridStep;
+
     private final Cell start;
     private final Cell end;
-    private final Cell[] neighbours;
     private Npc owner;
-    private final float gridStepping;
     private final float zTolerance;
 
-    public Pathfinder(final Cell start, final Cell end, final Cell[] neighbours,
-    float gridStepping, float zTolerance) {
+    public Pathfinder(final Cell start, final Cell end, final float zTolerance)
+    {
         this.start = start;
         this.end = end;
-        this.neighbours = neighbours;
-        this.gridStepping = gridStepping;
         this.zTolerance = zTolerance;
-        for (Cell neighbor : this.neighbours) {
-          neighbor.x *= gridStepping;
-          neighbor.y *= gridStepping;
-          neighbor.z *= gridStepping;
-        }
+    }
+
+    public static void setGridStepping(final Cell[] pneighbours, float pgridStep) {
+      Pathfinder.gridStep = pgridStep;
+      Pathfinder.neighbours = pneighbours;
+      for (Cell neighbor : Pathfinder.neighbours) {
+        neighbor.x *= pgridStep;
+        neighbor.y *= pgridStep;
+        neighbor.z *= pgridStep;
+      }
     }
 
     public Cell getStart() {
@@ -67,8 +73,8 @@ public class Pathfinder {
         return end;
     }
 
-    public Cell[] getNeighbours() {
-        return neighbours;
+    public static Cell[] getNeighbours() {
+        return Pathfinder.neighbours;
     }
 
     public ArrayList<Cell> findPath() {
@@ -113,20 +119,30 @@ public class Pathfinder {
             //log.info("[pathfinder] current: "+current.toString());
             //log.info("[pathfinder] end: "+end.toString());
             float dt = current.diff(end);
-            //log.info("[pathfinder] dt: "+dt);
-            if(current.closeto(end, this.gridStepping * 2)) {
+            //log.info("[pathfinder] Pathfinder.gridStep: "+Pathfinder.gridStep);
+            if(current.closeto(end, Pathfinder.gridStep)) {
                 break;
             }
 
+            //log.info("[Pathfinder] current: "+current.toString());
+
             // Generate children
             final ArrayList<Cell> children = new ArrayList<>();
-            for(final Cell neighbor : neighbours) {
-                neighbor.z = this.owner.getMoveController().getZ(this.owner, neighbor.x, neighbor.y, this.owner.getZ());
-                final Cell child = new Cell(current.x + neighbor.x, current.y + neighbor.y, current.z + neighbor.z);
+            for(final Cell neighbor : Pathfinder.neighbours) {
+
+                final Cell child = new Cell(current.x + neighbor.x, current.y + neighbor.y, 0);
+                child.z = this.owner.getMoveController().getZ(this.owner, child.x, child.y, current.z);
                 child.parent = current;
 
-                if (current.isBlocked(child, this.zTolerance))
+                //log.info("[Pathfinder] child: "+child.toString());
+                //log.info("[Pathfinder] dx: "+Math.abs(current.x-child.x)+",dy: "+Math.abs(current.y-child.y)+",dz: "+Math.abs(current.z-child.z));
+                //log.info("[Pathfinder] dz: "+Math.abs(current.z-child.z));
+
+                if (current.isBlocked(child, this.zTolerance)) {
+                  //log.info("[Pathfinder] child is Blocked.");
                   continue;
+                }
+                //log.info("[Pathfinder] child is not Blocked.");
 
                 children.add(child);
             }
@@ -140,7 +156,10 @@ public class Pathfinder {
 
                 // Create the f, g, and h values
                 child.g = current.g + 1;
-                child.h = (int) (Math.pow(child.x - end.x, 2) + Math.pow(child.y - end.y, 2) + Math.pow(child.z - end.z, 2));
+                int hx = (int) Math.pow(Math.abs(child.x - end.x), 2);
+                int hy = (int) Math.pow(Math.abs(child.y - end.y), 2);
+                int hz = 2 * ((int)Math.pow(Math.abs(child.z - end.z), 2));
+                child.h = (int) (hx + hy + hz);
                 child.f = child.g + child.h;
 
                 // Child is already in the open list
@@ -167,7 +186,14 @@ public class Pathfinder {
         }
         // Reverse the list
         Collections.reverse(path);
+        /*String listString = "";
 
+        for (Cell s : path)
+        {
+            listString += s.toString() + ", ";
+        }
+
+        log.info("[Pathfinder] result: "+listString);*/
         return path;
     }
 }

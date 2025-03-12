@@ -94,13 +94,13 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 			destination = Destination.TARGET_OBJECT;
 			updateLastMove();
 			MoveTaskManager.getInstance().addCreature(owner);
-			if(currentRoute == null) {
+			/*if(currentRoute == null) {
 				VisibleObject target = owner.getTarget();
 				if (target == null) {
 					return;
 				}
 				WalkManager.startPathWalking((NpcAI2)owner.getAi2(), target.getX(), target.getY(), target.getZ());
-			}
+			}*/
 		}
 	}
 
@@ -115,9 +115,9 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 			pointZ = z;
 			updateLastMove();
 			MoveTaskManager.getInstance().addCreature(owner);
-			if(currentRoute == null) {
+			/*if(currentRoute == null) {
 				WalkManager.startPathWalking((NpcAI2)owner.getAi2(), x, y, z);
-			}
+			}*/
 		}
 	}
 

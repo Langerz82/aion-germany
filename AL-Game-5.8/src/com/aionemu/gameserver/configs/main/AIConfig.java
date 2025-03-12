@@ -78,6 +78,11 @@ public class AIConfig {
 	 */
 	@Property(key = "gameserver.npcmovement.pathfinding.iterations", defaultValue = "200")
 	public static int PATHFINDING_ITERATIONS;
+	/**
+	 * Pathfinding Max Distance.
+	 */
+	@Property(key = "gameserver.npcmovement.pathfinding.distance.max", defaultValue = "30.0")
+	public static float PATHFINDING_MAX_DISTANCE;
 
 	/**
 	 * RandomWalk Enable Player Distance Threshold check.
@@ -90,4 +95,10 @@ public class AIConfig {
 	 */
 	@Property(key = "gameserver.npcmovement.randomwalk.threshold.playermaxdistance", defaultValue = "200.0")
 	public static float RANDOMWALK_PLAYERMAXDIST;
+
+	/**
+	 * RandomWalk - Random Max Tries.
+	 */
+	@Property(key = "gameserver.npcmovement.randomwalk.tries.max", defaultValue = "10")
+	public static int RANDOM_MAX_TRIES;
 }

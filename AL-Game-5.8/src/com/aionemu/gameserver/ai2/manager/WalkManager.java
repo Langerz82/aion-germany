@@ -51,6 +51,11 @@ public class WalkManager {
 	private static final Logger log = LoggerFactory.getLogger(WalkManager.class);
 	private static final int WALK_RANDOM_RANGE = 5;
 
+	static {
+		log.info("[WalkManager] Pathfinder.setGridStepping.");
+		Pathfinder.setGridStepping(Pathfinder.DIAGONAL_NEIGHBORS, AIConfig.PATHFINDING_STEPS);
+	}
+
 	/**
 	 * @param npcAI
 	 */
@@ -89,11 +94,6 @@ public class WalkManager {
 			return false;
 		}
 
-		if (npcAI.ignorePath) {
-			npcAI.ignorePath = false;
-			return false;
-		}
-
 		if (startPathWalking(npcAI, npcAI.getOwner(), px, py, pz)) {
 			return true;
 		}
@@ -110,27 +110,33 @@ public class WalkManager {
 		//if (owner.getMoveController().hasCurrentRoute())
 			//return false;
 
+
 		pz = owner.getMoveController().getZ(owner, px, py, pz);
 		final Cell cellOwner = new Cell(owner.getX(), owner.getY(), owner.getZ());
 
 		final Cell cellDest = new Cell(px, py, pz);
-		final Pathfinder pathfinder = new Pathfinder(cellOwner, cellDest,
-			Pathfinder.DIAGONAL_NEIGHBORS, AIConfig.PATHFINDING_STEPS, AIConfig.MAXIMUM_MOVE_SLANT);
+
+		float dist = (float) MathUtil.getDistance(cellOwner.x, cellOwner.y, cellOwner.z,
+			cellDest.x, cellDest.y, cellDest.z);
+		if (dist > AIConfig.PATHFINDING_MAX_DISTANCE)
+			return false;
+
+		final Pathfinder pathfinder = new Pathfinder(cellOwner, cellDest, AIConfig.MAXIMUM_MOVE_SLANT);
 		pathfinder.setOwner(owner);
 		final ArrayList<Cell> path = pathfinder.findPath(AIConfig.PATHFINDING_ITERATIONS);
 		List<RouteStep> route = new ArrayList<RouteStep>();
 		if (path.size() == 0)
-			return false;
+			return true;
 
 		int routeStepIndex = 0;
 		for(Cell cell : path) {
 			RouteStep routeStep = new RouteStep(cell.x, cell.y, cell.z, 0);
 			routeStep.setRouteStep(++routeStepIndex);
 			route.add(routeStep);
-			//log.info("[WalkManager] cell.x: " + cell.x + " cell.y: " + cell.y + " cell.z " + cell.z);
+			log.info("[WalkManager] cell.x: " + cell.x + " cell.y: " + cell.y + " cell.z " + cell.z);
 		}
 		RouteStep routeStep = new RouteStep(px, py, pz, 0);
-		//log.info("[WalkManager] end.x: " + px + " end.y: " + py + " end.z " + pz);
+		log.info("[WalkManager] end.x: " + px + " end.y: " + py + " end.z " + pz);
 		routeStep.setRouteStep(++routeStepIndex);
 		route.add(routeStep);
 		//log.info("route_size:" + route.size());
@@ -337,7 +343,6 @@ public class WalkManager {
 	private static void returnToSpawn(NpcAI2 npcAI) {
 		//log.info("[WalkManager] returnToSpawn");
 		final Npc owner = npcAI.getOwner();
-		npcAI.ignorePath = true;
 		owner.getMoveController().moveToPoint(owner.getSpawn().getX(), owner.getSpawn().getY(), owner.getSpawn().getZ());
 	}
 
@@ -382,23 +387,38 @@ public class WalkManager {
 						returnToSpawn(npcAI);
 					}
 					else {
-						int nextX = Rnd.nextInt(walkRange * 2) - walkRange;
-						int nextY = Rnd.nextInt(walkRange * 2) - walkRange;
-						if (GeoDataConfig.GEO_ENABLE && GeoDataConfig.GEO_NPC_MOVE) {
-							byte flags = (byte) (CollisionIntention.PHYSICAL.getId() | CollisionIntention.DOOR.getId() | CollisionIntention.WALK.getId());
-							Vector3f loc = GeoService.getInstance().getClosestCollision(owner, owner.getX() + nextX, owner.getY() + nextY, owner.getZ(), true, flags);
+						Vector3f loc = null;
+						int i=0;
+						while(i++ < AIConfig.RANDOM_MAX_TRIES)
+						{
+							int nextX = Rnd.nextInt(walkRange * 2) - walkRange;
+							int nextY = Rnd.nextInt(walkRange * 2) - walkRange;
 
-							float dxy = (Math.abs(nextX) + Math.abs(nextY)) * AIConfig.MAXIMUM_MOVE_SLANT;
-							float cxy = Math.abs(owner.getZ() - loc.z);
-							if (cxy > dxy) {
-									returnToSpawn(npcAI);
-									return;
+							if (GeoDataConfig.GEO_ENABLE && GeoDataConfig.GEO_NPC_MOVE) {
+								byte flags = (byte) (CollisionIntention.PHYSICAL.getId() | CollisionIntention.DOOR.getId() | CollisionIntention.WALK.getId());
+								loc = GeoService.getInstance().getClosestCollision(owner, owner.getX() + nextX, owner.getY() + nextY, owner.getZ(), true, flags);
+
+								float dxy = (Math.abs(nextX) + Math.abs(nextY)) * AIConfig.MAXIMUM_MOVE_SLANT;
+								float cxy = Math.abs(owner.getZ() - loc.z);
+								if (cxy > dxy) {
+									continue;
+								}
+								if (!GeoService.getInstance().canSee(owner, loc.x, loc.y, loc.z))
+									continue;
+								break;
 							}
-
-							owner.getMoveController().moveToPoint(loc.x, loc.y, loc.z);
+							else {
+								loc = new Vector3f(owner.getX() + nextX, owner.getY() + nextY, owner.getZ());
+								break;
+							}
 						}
-						else {
-							owner.getMoveController().moveToPoint(owner.getX() + nextX, owner.getY() + nextY, owner.getZ());
+						if (i == AIConfig.RANDOM_MAX_TRIES) {
+							returnToSpawn(npcAI);
+							return;
+						}
+						if (loc != null) {
+							if (!startPathWalking(npcAI, loc.x, loc.y, loc.z))
+								owner.getMoveController().moveToPoint(loc.x, loc.y, loc.z);
 						}
 					}
 				}
