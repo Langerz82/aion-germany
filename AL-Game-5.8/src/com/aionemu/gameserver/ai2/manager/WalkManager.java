@@ -133,10 +133,10 @@ public class WalkManager {
 			RouteStep routeStep = new RouteStep(cell.x, cell.y, cell.z, 0);
 			routeStep.setRouteStep(++routeStepIndex);
 			route.add(routeStep);
-			log.info("[WalkManager] cell.x: " + cell.x + " cell.y: " + cell.y + " cell.z " + cell.z);
+			//log.info("[WalkManager] cell.x: " + cell.x + " cell.y: " + cell.y + " cell.z " + cell.z);
 		}
 		RouteStep routeStep = new RouteStep(px, py, pz, 0);
-		log.info("[WalkManager] end.x: " + px + " end.y: " + py + " end.z " + pz);
+		//log.info("[WalkManager] end.x: " + px + " end.y: " + py + " end.z " + pz);
 		routeStep.setRouteStep(++routeStepIndex);
 		route.add(routeStep);
 		//log.info("route_size:" + route.size());
@@ -400,10 +400,11 @@ public class WalkManager {
 
 								float dxy = (Math.abs(nextX) + Math.abs(nextY)) * AIConfig.MAXIMUM_MOVE_SLANT;
 								float cxy = Math.abs(owner.getZ() - loc.z);
-								if (cxy > dxy) {
+								if (cxy > dxy)
 									continue;
-								}
-								if (!GeoService.getInstance().canSee(owner, loc.x, loc.y, loc.z))
+								if (!GeoService.getInstance().canSee(owner, loc.x, loc.y, owner.getZ()))
+									continue;
+								if (!((owner.getX() + nextX) == loc.x && (owner.getY() + nextY) == loc.y))
 									continue;
 								break;
 							}

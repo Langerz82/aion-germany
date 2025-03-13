@@ -133,6 +133,7 @@ public class GeoService {
 			return true;
 		}
 		float limit = (float) MathUtil.getDistance(object.getX(), object.getY(), object.getZ(), x, y, z);
+		limit += 2.0f;
 		if (limit <= 0) {
 			return true;
 		}
