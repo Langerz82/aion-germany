@@ -368,7 +368,7 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 	}
 
 	public boolean hasCurrentRoute() {
-		return !(currentRoute == null);
+		return (currentRoute != null);
 	}
 
 	/**
@@ -404,6 +404,10 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 		this.pointY = dest == null ? step.getY() : dest.getY();
 		this.destination = Destination.POINT;
 		this.walkPause = step.getRestTime();
+	}
+
+	public boolean hasCurrentRouteEnded() {
+		return (currentPoint == (currentRoute.size()-1));
 	}
 
 	public int getCurrentPoint() {

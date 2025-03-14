@@ -29,6 +29,7 @@ import com.aionemu.gameserver.ai2.AISubState;
 import com.aionemu.gameserver.ai2.NpcAI2;
 import com.aionemu.gameserver.configs.main.AIConfig;
 import com.aionemu.gameserver.configs.main.GeoDataConfig;
+import com.aionemu.gameserver.controllers.movement.NpcMoveController;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.geoEngine.collision.CollisionIntention;
 import com.aionemu.gameserver.geoEngine.math.Vector3f;
@@ -52,7 +53,7 @@ public class WalkManager {
 	private static final int WALK_RANDOM_RANGE = 5;
 
 	static {
-		log.info("[WalkManager] Pathfinder.setGridStepping.");
+		//log.info("[WalkManager] Pathfinder.setGridStepping.");
 		Pathfinder.setGridStepping(Pathfinder.DIAGONAL_NEIGHBORS, AIConfig.PATHFINDING_STEPS);
 	}
 
@@ -121,12 +122,19 @@ public class WalkManager {
 		if (dist > AIConfig.PATHFINDING_MAX_DISTANCE)
 			return false;
 
+		/*if (owner.getMoveController().hasCurrentRoute()) {
+			log.info("[WalkManager] startPathWalking, hasCurrentRoute.");
+			return true;
+		}*/
+
 		final Pathfinder pathfinder = new Pathfinder(cellOwner, cellDest, AIConfig.MAXIMUM_MOVE_SLANT);
 		pathfinder.setOwner(owner);
 		final ArrayList<Cell> path = pathfinder.findPath(AIConfig.PATHFINDING_ITERATIONS);
 		List<RouteStep> route = new ArrayList<RouteStep>();
-		if (path.size() == 0)
-			return true;
+		if (path.size() == 0) {
+			//log.info("[WalkManager] startPathWalking, path==0.");
+			return false;
+		}
 
 		int routeStepIndex = 0;
 		for(Cell cell : path) {
@@ -141,6 +149,12 @@ public class WalkManager {
 		route.add(routeStep);
 		//log.info("route_size:" + route.size());
 
+		npcAI.prevSubState = npcAI.getSubState();
+		//log.info("[WalkManager] startPathWalking, getSubState: "+npcAI.getSubState());
+		owner.getMoveController().setCurrentRoute(null);
+		stopWalking(npcAI);
+		npcAI.setStateIfNot(AIState.WALKING);
+		npcAI.setSubStateIfNot(AISubState.WALK_PATH);
 
 		int currentPoint = owner.getMoveController().getCurrentPoint();
 		RouteStep nextStep = findNextRoutStep(owner, route);
@@ -149,9 +163,6 @@ public class WalkManager {
 		EmoteManager.emoteStartWalking(npcAI.getOwner());
 		owner.getMoveController().moveToNextPoint();
 		npcAI.isPathWalking = true;
-		npcAI.prevSubState = npcAI.getSubState();
-		npcAI.setStateIfNot(AIState.WALKING);
-		npcAI.setSubStateIfNot(AISubState.WALK_PATH);
 		return true;
 	}
 
@@ -283,8 +294,17 @@ public class WalkManager {
 	 */
 	public static void targetReached(final NpcAI2 npcAI) {
 		if (npcAI.isInState(AIState.WALKING)) {
-			if (npcAI.isPathWalking)
-				npcAI.setSubStateIfNot(npcAI.prevSubState);
+			if (npcAI.isPathWalking) {
+				//log.info("[WalkManager] targetReached, getState:"+npcAI.getState());
+				//log.info("[WalkManager] targetReached, getSubState:"+npcAI.getSubState());
+				boolean result = npcAI.getOwner().getMoveController().hasCurrentRouteEnded();
+				//log.info("[WalkManager] targetReached, hasCurrentRouteEnded:"+result);
+				if (result) {
+					npcAI.setSubStateIfNot(npcAI.prevSubState);
+					//log.info("[WalkManager] targetReached, getSubState:"+npcAI.getSubState());
+					npcAI.isPathWalking = false;
+				}
+			}
 			switch (npcAI.getSubState()) {
 				case WALK_PATH:
 					npcAI.getOwner().updateKnownlist();
@@ -308,7 +328,7 @@ public class WalkManager {
 				default:
 					break;
 			}
-			npcAI.isPathWalking = false;
+
 		}
 	}
 
@@ -343,6 +363,8 @@ public class WalkManager {
 	private static void returnToSpawn(NpcAI2 npcAI) {
 		//log.info("[WalkManager] returnToSpawn");
 		final Npc owner = npcAI.getOwner();
+		//log.info("[WalkManager] returnToSpawn, getState:"+npcAI.getState());
+		//log.info("[WalkManager] returnToSpawn, getSubState:"+npcAI.getSubState());
 		owner.getMoveController().moveToPoint(owner.getSpawn().getX(), owner.getSpawn().getY(), owner.getSpawn().getZ());
 	}
 
@@ -350,10 +372,13 @@ public class WalkManager {
 	 * @param npcAI
 	 */
 	private static void chooseNextRandomPoint(final NpcAI2 npcAI) {
+		//log.info("WalkManager chooseNextRandomPoint.");
 		final Npc owner = npcAI.getOwner();
 
-		owner.getMoveController().setCurrentRoute(null);
-		owner.getMoveController().abortMove();
+		//if (npcAI.isInState(AIState.WALKING)) {
+		//owner.getMoveController().setCurrentRoute(null);
+			//owner.getMoveController().resetMove();
+		//}
 
 		final int randomWalkNr = owner.getSpawn().getRandomWalk();
 		final int walkRange = Math.max(randomWalkNr, WALK_RANDOM_RANGE);
@@ -362,8 +387,13 @@ public class WalkManager {
 
 			@Override
 			public void run() {
-				owner.getMoveController().setCurrentRoute(null);
-				owner.getMoveController().abortMove();
+					//log.info("[WalkManager] chooseNextRandomPoint, thread run.");
+					//log.info("[WalkManager] chooseNextRandomPoint, getState:"+npcAI.getState());
+					//log.info("[WalkManager] chooseNextRandomPoint, getSubState:"+npcAI.getSubState());
+				if (npcAI.isInState(AIState.WALKING)) {
+					owner.getMoveController().setCurrentRoute(null);
+					owner.getMoveController().abortMove();
+				}
 
 				//log.info("[WalkManager] startRandomWalking.");
 				// TODO - This code makes Creatures move too fast, when out of distance presumably.
@@ -385,41 +415,42 @@ public class WalkManager {
 					float distToSpawn = (float) owner.getDistanceToSpawnLocation();
 					if (distToSpawn > walkRange) {
 						returnToSpawn(npcAI);
+						return;
 					}
-					else {
-						Vector3f loc = null;
-						int i=0;
-						while(i++ < AIConfig.RANDOM_MAX_TRIES)
-						{
-							int nextX = Rnd.nextInt(walkRange * 2) - walkRange;
-							int nextY = Rnd.nextInt(walkRange * 2) - walkRange;
 
-							if (GeoDataConfig.GEO_ENABLE && GeoDataConfig.GEO_NPC_MOVE) {
-								byte flags = (byte) (CollisionIntention.PHYSICAL.getId() | CollisionIntention.DOOR.getId() | CollisionIntention.WALK.getId());
-								loc = GeoService.getInstance().getClosestCollision(owner, owner.getX() + nextX, owner.getY() + nextY, owner.getZ(), true, flags);
+					Vector3f loc = null;
+					int i=0;
+					while(i++ < AIConfig.RANDOM_MAX_TRIES) {
+						int nextX = Rnd.nextInt(walkRange * 2) - walkRange;
+						int nextY = Rnd.nextInt(walkRange * 2) - walkRange;
 
-								float dxy = (Math.abs(nextX) + Math.abs(nextY)) * AIConfig.MAXIMUM_MOVE_SLANT;
-								float cxy = Math.abs(owner.getZ() - loc.z);
-								if (cxy > dxy)
-									continue;
-								if (!GeoService.getInstance().canSee(owner, loc.x, loc.y, owner.getZ()))
-									continue;
-								if (!((owner.getX() + nextX) == loc.x && (owner.getY() + nextY) == loc.y))
-									continue;
-								break;
-							}
-							else {
-								loc = new Vector3f(owner.getX() + nextX, owner.getY() + nextY, owner.getZ());
-								break;
-							}
+						if (GeoDataConfig.GEO_ENABLE && GeoDataConfig.GEO_NPC_MOVE) {
+							byte flags = (byte) (CollisionIntention.PHYSICAL.getId() | CollisionIntention.DOOR.getId() | CollisionIntention.WALK.getId());
+							loc = GeoService.getInstance().getClosestCollision(owner, owner.getX() + nextX, owner.getY() + nextY, owner.getZ(), true, flags);
+
+							float dxy = (Math.abs(nextX) + Math.abs(nextY)) * AIConfig.MAXIMUM_MOVE_SLANT;
+							float cxy = Math.abs(owner.getZ() - loc.z);
+							if (cxy > dxy)
+								continue;
+							if (!GeoService.getInstance().canSee(owner, loc.x, loc.y, owner.getZ()))
+								continue;
+							if (!((owner.getX() + nextX) == loc.x && (owner.getY() + nextY) == loc.y))
+								continue;
+							break;
 						}
-						if (i == AIConfig.RANDOM_MAX_TRIES) {
-							returnToSpawn(npcAI);
-							return;
+						else {
+							loc = new Vector3f(owner.getX() + nextX, owner.getY() + nextY, owner.getZ());
+							break;
 						}
-						if (loc != null) {
-							if (!startPathWalking(npcAI, loc.x, loc.y, loc.z))
-								owner.getMoveController().moveToPoint(loc.x, loc.y, loc.z);
+					}
+					if (i == (AIConfig.RANDOM_MAX_TRIES-1)) {
+						returnToSpawn(npcAI);
+						return;
+					}
+					if (loc != null) {
+						//npcAI.setSubStateIfNot(AISubState.WALK_RANDOM);
+						if (!startPathWalking(npcAI, loc.x, loc.y, loc.z)) {
+							owner.getMoveController().moveToPoint(loc.x, loc.y, loc.z);
 						}
 					}
 				}
