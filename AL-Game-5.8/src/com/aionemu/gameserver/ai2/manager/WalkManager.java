@@ -35,6 +35,7 @@ import com.aionemu.gameserver.geoEngine.collision.CollisionIntention;
 import com.aionemu.gameserver.geoEngine.math.Vector3f;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.geometry.Point3D;
 import com.aionemu.gameserver.model.templates.walker.RouteStep;
 import com.aionemu.gameserver.model.templates.walker.WalkerTemplate;
 import com.aionemu.gameserver.utils.MathUtil;
@@ -436,6 +437,10 @@ public class WalkManager {
 								continue;
 							if (!((owner.getX() + nextX) == loc.x && (owner.getY() + nextY) == loc.y))
 								continue;
+
+							if (AIConfig.CHECK_LINE_POINTS && !checkLinePoint(owner, loc))
+								continue;
+
 							break;
 						}
 						else {
@@ -459,6 +464,30 @@ public class WalkManager {
 
 	}
 
+	public static boolean checkLinePoint(Npc owner, Vector3f dest) {
+		Vector3f p1 = new Vector3f(owner.getX(), owner.getY(), owner.getZ());
+		Vector3f p2 = new Vector3f(dest.x, dest.y, dest.z);
+		float dist = (float) MathUtil.getDistance(p1.x, p1.y, p1.z, p2.x, p2.y, p2.z);
+		int points = (int) Math.ceil(dist);
+		float prevZ = p1.z;
+		for (int i=1; i < points; ++i)
+		{
+			Point3D p3 = MathUtil.getPointBetweenLine(p1.x, p1.y, p1.z, p2.x, p2.y, p2.z, (float) i/points);
+
+			if (GeoDataConfig.GEO_ENABLE && GeoDataConfig.GEO_NPC_MOVE) {
+				byte flags = (byte) (CollisionIntention.PHYSICAL.getId() | CollisionIntention.DOOR.getId() | CollisionIntention.WALK.getId());
+				Vector3f loc = GeoService.getInstance().getClosestCollision(owner, p3.getX(), p3.getY(), p3.getZ(), true, flags);
+
+				float cxy = Math.abs(prevZ - loc.z);
+				if (cxy > AIConfig.MAXIMUM_MOVE_SLANT) {
+					log.info("[WalkManager] checkLinePoint: cxy="+cxy);
+					return false;
+				}
+				prevZ = loc.z;
+			}
+		}
+		return true;
+	}
 	/**
 	 * @param npcAI
 	 */

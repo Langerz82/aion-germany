@@ -44,7 +44,7 @@ import com.aionemu.gameserver.skillengine.properties.AreaDirections;
  * <br>
  * Few words about speed:
  * <p/>
- * 
+ *
  * <pre>
  * Math.hypot(dx, dy); // Extremely slow
  * Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2)); // 20 times faster than hypot
@@ -55,7 +55,7 @@ import com.aionemu.gameserver.skillengine.properties.AreaDirections;
  * In fact the difference is very small, so it can be ignored.<br>
  * Feel free to run the following test (or to find a mistake in it ^^).<br>
  * <p/>
- * 
+ *
  * <pre>
  * import java.util.Random;
  *
@@ -108,6 +108,16 @@ import com.aionemu.gameserver.skillengine.properties.AreaDirections;
  * @author GiGatR00n v4.7.5.x
  */
 public class MathUtil {
+
+	public static Point3D getPointBetweenLine(float p1x, float p1y, float p1z, float p2x, float p2y, float p2z, float ratio)
+	{
+		Point3D point3 = new Point3D();
+		point3.setX((p1x + p2x) * ratio);
+		point3.setY((p1y + p2y) * ratio);
+		point3.setZ((p1z + p2z) * ratio);
+
+		return point3;
+	}
 
 	/**
 	 * Returns distance between two 2D points

@@ -101,4 +101,11 @@ public class AIConfig {
 	 */
 	@Property(key = "gameserver.npcmovement.randomwalk.tries.max", defaultValue = "10")
 	public static int RANDOM_MAX_TRIES;
+
+	/**
+	 * Enable check random walk z-points.
+	 */
+	@Property(key = "gameserver.npcmovement.randomwalk.zpoints.check.enabled", defaultValue = "true")
+	public static boolean CHECK_LINE_POINTS;
+
 }
