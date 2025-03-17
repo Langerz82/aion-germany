@@ -30,7 +30,9 @@ import com.aionemu.gameserver.ai2.AISubState;
 import com.aionemu.gameserver.ai2.NpcAI2;
 import com.aionemu.gameserver.ai2.handler.TargetEventHandler;
 import com.aionemu.gameserver.ai2.manager.WalkManager;
+import com.aionemu.gameserver.configs.main.AIConfig;
 import com.aionemu.gameserver.configs.main.GeoDataConfig;
+import com.aionemu.gameserver.geoEngine.math.Vector3f;
 import com.aionemu.gameserver.model.actions.CreatureActions;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
@@ -520,6 +522,43 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 		stepSequenceNr = 0;
 		lastSteps = null;
 		movementMask = MovementMask.IMMEDIATE;
+	}
+
+	public boolean checkLinePoint(Vector3f dest) {
+		Vector3f p1 = new Vector3f(owner.getX(), owner.getY(), owner.getZ());
+		//log.info("[WalkManager] checkLinePoint, p1:"+p1);
+		Vector3f p2 = new Vector3f(dest.x, dest.y, dest.z);
+		//log.info("[WalkManager] checkLinePoint, p2:"+p2);
+		float dist = (float) MathUtil.getDistance(p1.x, p1.y, p1.z, p2.x, p2.y, p2.z);
+		int points = (int) Math.ceil(dist);
+		float prevZ = p1.z;
+		for (int i=1; i < points; ++i)
+		{
+			Point3D p3 = MathUtil.getPointBetweenLine(p1.x, p1.y, p1.z, p2.x, p2.y, p2.z, (float) i/points);
+			//log.info("[WalkManager] checkLinePoint, p3:"+p3);
+
+			if (GeoDataConfig.GEO_ENABLE && GeoDataConfig.GEO_NPC_MOVE) {
+				float tz = getZ(owner, p3.getX(), p3.getY(), p3.getZ());
+				//Vector3f loc = new Vector3f(p3.getX(), p3.getY(), tz);
+				//log.info("[WalkManager] checkLinePoint: loc.z="+loc.z+",tz="+tz+",p3.getZ()="+p3.getZ());
+				float cz = Math.abs(prevZ - tz);
+				//float hypotenuse = (float) MathUtil.getDistance(p3.getX(), p3.getY(), p3.getZ(), loc.x, loc.y, loc.z);
+				//hypotenuse = Math.max(1.0f, hypotenuse);
+
+
+				//log.info("[WalkManager] checkLinePoint: p3="+p3);
+				//log.info("[WalkManager] checkLinePoint: loc="+loc);
+				//log.info("[WalkManager] checkLinePoint: prevZ="+prevZ);
+				//log.info("[WalkManager] checkLinePoint: loc.z="+loc.z);
+				//log.info("[WalkManager] checkLinePoint: cxy="+cxy);
+				if (cz > (AIConfig.MAXIMUM_MOVE_SLANT)) {
+					//log.info("[WalkManager] checkLinePoint: cz="+cz);
+					return false;
+				}
+				prevZ = tz;
+			}
+		}
+		return true;
 	}
 
 	@Override

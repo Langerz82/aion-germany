@@ -60,8 +60,9 @@ public class FrontDashEffect extends EffectTemplate {
 		final Player effector = (Player) effect.getEffector();
 
 		double radian = Math.toRadians(MathUtil.convertHeadingToDegree(effector.getHeading()));
-		float x1 = (float) (Math.cos(Math.PI * direction + radian) * distance);
-		float y1 = (float) (Math.sin(Math.PI * direction + radian) * distance);
+		float dist = distance - (effector.getGameStats().getAttackRange().getCurrent() / 1000);
+		float x1 = (float) (Math.cos(Math.PI * direction + radian) * dist);
+		float y1 = (float) (Math.sin(Math.PI * direction + radian) * dist);
 		float targetZ = GeoService.getInstance().getZ(effector.getWorldId(), effector.getX() + x1, effector.getY() + y1, effector.getZ() + 1.5f, 0.2f, effector.getInstanceId());
 		byte intentions = (byte) (CollisionIntention.PHYSICAL.getId() | CollisionIntention.DOOR.getId());
 		Vector3f closestCollision = GeoService.getInstance().getClosestCollision(effector, effector.getX() + x1, effector.getY() + y1, targetZ, false, intentions);

@@ -396,20 +396,10 @@ public class WalkManager {
 					owner.getMoveController().abortMove();
 				}
 
-				//log.info("[WalkManager] startRandomWalking.");
-				// TODO - This code makes Creatures move too fast, when out of distance presumably.
-				if (AIConfig.RANDOMWALK_THRESHOLD) {
-					// This piece of code makes sure a player is in range.
-					for (Player player : World.getInstance().getAllPlayers()) {
-						if(!player.isOnline())
-							continue;
-						float dist = (float) MathUtil.getDistance(owner.getX(), owner.getY(), owner.getZ(),
-							player.getX(), player.getY(), player.getZ());
-						if (dist > AIConfig.RANDOMWALK_PLAYERMAXDIST) {
-							chooseNextRandomPoint(npcAI);
-							return;
-						}
-					}
+
+				if (!npcAI.isAnyPlayerNear(AIConfig.RANDOMWALK_PLAYERMAXDIST)) {
+					chooseNextRandomPoint(npcAI);
+					return;
 				}
 
 				if (npcAI.isInState(AIState.WALKING)) {
@@ -438,7 +428,7 @@ public class WalkManager {
 							if (!((owner.getX() + nextX) == loc.x && (owner.getY() + nextY) == loc.y))
 								continue;
 
-							if (AIConfig.CHECK_LINE_POINTS && !checkLinePoint(owner, loc))
+							if (AIConfig.CHECK_LINE_POINTS && !owner.getMoveController().checkLinePoint(loc))
 								continue;
 
 							break;
@@ -448,7 +438,7 @@ public class WalkManager {
 							break;
 						}
 					}
-					if (i == (AIConfig.RANDOM_MAX_TRIES-1)) {
+					if (i == AIConfig.RANDOM_MAX_TRIES) {
 						returnToSpawn(npcAI);
 						return;
 					}
@@ -461,37 +451,8 @@ public class WalkManager {
 				}
 			}
 		}, Rnd.get(AIConfig.MINIMIMUM_DELAY, AIConfig.MAXIMUM_DELAY) * 1000);
-
 	}
 
-	public static boolean checkLinePoint(Npc owner, Vector3f dest) {
-		Vector3f p1 = new Vector3f(owner.getX(), owner.getY(), owner.getZ());
-		//log.info("[WalkManager] checkLinePoint, p1:"+p1);
-		Vector3f p2 = new Vector3f(dest.x, dest.y, dest.z);
-		//log.info("[WalkManager] checkLinePoint, p2:"+p2);
-		float dist = (float) MathUtil.getDistance(p1.x, p1.y, p1.z, p2.x, p2.y, p2.z);
-		int points = (int) Math.ceil(dist);
-		float prevZ = p1.z;
-		for (int i=1; i < points; ++i)
-		{
-			Point3D p3 = MathUtil.getPointBetweenLine(p1.x, p1.y, p1.z, p2.x, p2.y, p2.z, (float) i/points);
-			//log.info("[WalkManager] checkLinePoint, p3:"+p3);
-
-			if (GeoDataConfig.GEO_ENABLE && GeoDataConfig.GEO_NPC_MOVE) {
-				byte flags = (byte) (CollisionIntention.PHYSICAL.getId() | CollisionIntention.DOOR.getId() | CollisionIntention.WALK.getId());
-				Vector3f loc = GeoService.getInstance().getClosestCollision(owner, p3.getX(), p3.getY(), p3.getZ(), true, flags);
-
-				float cxy = Math.abs(prevZ - loc.z);
-				//log.info("[WalkManager] checkLinePoint: cxy="+cxy);
-				if (cxy > AIConfig.MAXIMUM_MOVE_SLANT) {
-					//log.info("[WalkManager] checkLinePoint: cxy="+cxy);
-					return false;
-				}
-				prevZ = loc.z;
-			}
-		}
-		return true;
-	}
 	/**
 	 * @param npcAI
 	 */

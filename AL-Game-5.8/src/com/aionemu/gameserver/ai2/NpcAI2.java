@@ -189,6 +189,25 @@ public class NpcAI2 extends AITemplate {
 		return getOwner().getGameStats().getMovementSpeedFloat() > 0 && !this.isInSubState(AISubState.FREEZE);
 	}
 
+	public boolean isAnyPlayerNear(float dist)
+	{
+		//log.info("[WalkManager] startRandomWalking.");
+		// TODO - This code makes Creatures move too fast, when out of distance presumably.
+		if (AIConfig.RANDOMWALK_THRESHOLD) {
+			// This piece of code makes sure a player is in range.
+			Npc owner = (Npc) getOwner();
+			for (Creature player : owner.getPosition().getWorld().getAllPlayers()) {
+				float tdist = (float) MathUtil.getDistance(owner.getX(), owner.getY(), owner.getZ(),
+					player.getX(), player.getY(), player.getZ());
+				if (tdist > dist) {
+					return true;
+				}
+			}
+			return false;
+		}
+		return true;
+	}
+
 	public boolean isPathWalking;
 	public AISubState prevSubState;
 }
